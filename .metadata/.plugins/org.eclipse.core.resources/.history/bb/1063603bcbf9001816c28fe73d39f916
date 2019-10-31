@@ -1,0 +1,72 @@
+﻿package com.alipay.config;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+/* *
+ *类名：AlipayConfig
+ *功能：基础配置类
+ *详细：设置帐户有关信息及返回路径
+ *修改日期：2017-04-05
+ *说明：
+ *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
+ *该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
+ */
+
+public class AlipayConfig {
+	
+//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+	// 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
+	public static String app_id = "2018072460787253";
+	
+	// 商户私钥，您的PKCS8格式RSA2私钥
+    public static String merchant_private_key = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCL0OlzxnWnGtck1JF7a407tkoRomk1G2zRkCXwZag7CfVci45TPDWMRAEKqL8tUKzGAepPu6uBYqYCHnKPAV1QPNXUvv3o07B4EAWKNWMWW9XQ0WRLtU4F4z7HQ9KZ3pvz1+k4pEVvScmrIBSZCqbz/4xNF/l7o2p6AQFffETrbdxCdOcRH1k+OOXbM6mRL3id3uo+4IptWkCKStHDeUHxedEy5ytJHaz5YHzuUR8VXSK/tBLCpKvk6y5A5mkGAxdpEeOmow3jpv+4xh+2aE7E99UK6mSpFW7O7RCS+4DP8rAMB/T4Wj/IMgoumK5RcnmZUpwafeIG3A6o8kubO4NVAgMBAAECggEATJFB56c9cx/dxkuqyD4kABlaAsJAf1bfhvw76qShNoPDnMTIUojcgk4Ti/TRjU1q8JzH5pZN2/NcGjj2X55Nrc1DBNj7T+/t6jJL9l46P1pXg53IITXO3qaOEK3xvVYNbcJF9EDxzXpJOK++1/jfaSv/d5CzjaP2gY3fZJ03WP3mQ8kdRbzAMa9Ytq7n8PJ2ASl1XV9MZIMruzykWQ6qEGtR/F+/NOeUsWdNkNudPHBtasB1zADOeNpIslBILOQ4IELKsojYy3bqkMvju0afJLmiA8fStlBu2Tx1b186bnxyAcDZaqw8OiqA4VyW8lDniwWj5yV6mkucp36jYHd2wQKBgQDU2BPzZU02Qvei/CfL90AyQ27POM51i7EL+RFCEK3f0GoBDM/Pd5UH1Yl4C1biAFYE/cGQc7E3ZMEb1djmBxzbJF51W2J+rgtqfqyn9/XYJFU7XsJ2VoGsGNmSlOFGytoPaZK8KCtnbEr2gcCjqUvD0iDgz5dh9IH1cNYVt6oYLQKBgQCoKjrTd5fyZzxzZ0JQU/jlv3U8zJpr7s2J42EGBW3ZQVXendN8I+J60hF83GgkSavJnAPwG+r6UP8FXFZ2rQoQWtIUy4ibRqv1uROD4DY3Q25ahZxkvfnwNQ+itshtiSmvlXD9q6o87huU8/LQ/OtzbadRb0SzAJNBPbxoy7WoyQKBgQCchBz/sjG6QjqaVvTo73P8wku9BJgGJmhWVpyTSXKjED6zcPlsJhKohSWm6ifE39xhpTzu/bSG+Ids8a+jT/2vRKpVgJMIdvIcKPTMO/JENEuc8gzsOqb2p/tu6B5VEZyTEt59kMiCMEdbyIShlUAKyv20c9NtjAD5PTWhGMNzLQKBgB3tPgDKJLlX0/M5qhx/hSjl1KhYRRb2LY/fbjHTH4RtUynF7pAGFtUCs2gEFWh3z+GWKUE+xqd7aJb8osqF6ueUMhTPT+VKQ2n8YNO0QBG/p1DmvDlVcbhkyP6NBsgvg8KilrQeK7KiMThl3Y2BpSkql38vjQtKC+qtYO1Ja2+5AoGAK0uqx38tVs395fPxvcCVlTHWzCaTHWBkA1QAOu3gVEOpPk0Jm2eU1RurqBaU/edzz2/FgyJv7Zn5SowYK+z1mZZWEVlN11eKXND8N7LdaKsu+H5drlT6ZfoS0n5bv9dAKmWI+lhm+aR1ilAdQdhzFnYjImv6k25bd/Qs++d6fdc=";
+	
+	// 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+    public static String alipay_public_key = "";
+
+	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+	public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+
+	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+	public static String return_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
+
+	// 签名方式
+	public static String sign_type = "RSA2";
+	
+	// 字符编码格式
+	public static String charset = "utf-8";
+	
+	// 支付宝网关
+	public static String gatewayUrl = "https://openapi.alipay.com/gateway.do";
+	
+	// 支付宝网关
+	public static String log_path = "C:\\";
+
+
+//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+    /** 
+     * 写日志，方便测试（看网站需求，也可以改成把记录存入数据库）
+     * @param sWord 要写入日志里的文本内容
+     */
+    public static void logResult(String sWord) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(log_path + "alipay_log_" + System.currentTimeMillis()+".txt");
+            writer.write(sWord);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+

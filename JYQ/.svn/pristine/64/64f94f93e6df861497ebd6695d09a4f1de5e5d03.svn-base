@@ -1,0 +1,20 @@
+package com.hengyu.user.service.impl;
+
+import com.hengyu.user.entity.ChangePhone;
+import com.hengyu.user.dao.ChangePhoneDAO;
+import com.hengyu.user.service.ChangePhoneService;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 更换手机号记录 服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-11-30
+ */
+@Service
+public class ChangePhoneServiceImpl extends ServiceImpl<ChangePhoneDAO, ChangePhone> implements ChangePhoneService {
+
+}

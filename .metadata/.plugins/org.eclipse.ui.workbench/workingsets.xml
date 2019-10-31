@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1543561791625_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1543561791632_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1543563624065_3" label="JYQ" name="JYQ">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/data-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/JYQ" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/eureka-server" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/user-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/exam-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/interview-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/web-common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/auth-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/contract-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/gateway" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/report-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/training-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/log-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/case-center" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/system-center" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1543563524751_2" label="Window Working Set" name="Aggregate for window 1543563524751"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1551333323217_4" label="Window Working Set" name="Aggregate for window 1551333323217"/>
+</workingSetManager>

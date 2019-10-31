@@ -1,0 +1,84 @@
+server:
+  port: 8200
+
+spring:
+  profiles:
+    active: dev
+  redis:
+    host: 127.0.0.1
+    port: 6380
+    password: 123456
+    jedis:
+      pool:
+        max-active: 64
+        max-idle: 20
+        min-idle: 2
+        max-wait: 2000
+  datasource:
+    druid:
+      url: jdbc:mysql://47.97.185.156:3306/jyq?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useLocalSessionState=true
+      driver-class-name: org.gjt.mm.mysql.Driver
+      username: root
+      password: SAok123
+      max-active: 64
+      validation-query: SELECT 'x'
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    banner-mode: 'OFF'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+      
+mybatis-plus:
+  mapper-locations: classpath:mappings/*.xml
+  type-aliases-package: com.hengyu.log.entity,com.hengyu.system.entity,com.hengyu.system.vo,com.hengyu.system.entity,com.hengyu.system.po
+  global-config:
+    id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    field-strategy: 1 #字段策略   0:忽略判断  1:非 NULL 判断  2:非空判断
+    db-column-underline: true
+    refresh-mapper: true
+    meta-object-handler: com.hengyu.common.handler.SystemMetaObjectHandler
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+        
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8765/eureka/
+      
+jwt:
+  expire: 14400 #单位（秒）
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key
+               
+company:
+  upload-img-path: companyLogo/img/
+  
+file.path: http://192.168.12.62:90/
+
+ftp:
+  address: 192.168.12.62
+  password: 123456
+
+alipay:
+  serverUrl: https://openapi.alipay.com/gateway.do
+  appId: 2018072460787253
+  publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAstFw1qBzjhRT140MUzEI1L43BIdjqbpuTRCdF4+8cEGx8v5pE1j30Z5jqMhsOHTkVtIvR4nyT64wxKklnON8o0+AzFqz839knXwEP3NcLG0MRIw7pKsVmsGKuHTnVdoBh+yoPHhoMnKtcTbs7Y9A3CyeNgHWZOAStYkb3oQUenzkzkYtH445GhQlFyTXPtreyZgrwF6WBt/Yc9MoaG9F3tvswu1UOARc24XQ2rqKdGuasBq/YpzNZ6P+Twmjq7H5uHF6JgMbvy/fV4HG2ZDOZwV4v9WBQoqgfA7VFc/3roBrzyVXqWx3G2ju7RwZId80da5704S/pkTyWsBBtkqTqwIDAQAB
+  privateKey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCQkJpIANK0EeF0/Vj2WtMn5Zfi00z8vPXqeIHRneVBpe19mNH6k2YuHUgr0/rGluDSSjzih3eIVxG9c61iiWM+hlrHfpWhL4OzZI00b+TokCGiBmoh9mAuCOU2iEq8HhNJRxVsTZxPZPDan0zS/KjTQocFbh90o7u/QkU3th/WPQOnfACBLO3vdmQoQ7YHLlXgnvy+aQDS1LVWl+kVS6wTWifyvuVvmdxRT8uz3H6k9UXCAcxsXXCiAwRYmTQRmlpxP7Tuu1ghNEdkYNF8E8PWWCVCCC2BuS39TQk7GXbEPEp0s+PvxhlzEJ5pzTt5FbWeB9E/N49y7NsHb8SarkizAgMBAAECggEAf77IFohjqKuERxT43/kyTjccGFwP0+ZGiIMkdE7Kn1A4pJu+MWa/DFDjzZbsK0B4OltPof2DKv+FtZvawxAUmtOutEqvfle2UXexL30RElEK51ozvv8vzn4dzipxn/oToNUnoSST07SnAQlzoZ2Ssdw/5BSDx1ZIOaId+DT/vReoAorvasmPkqZC8iIDwHPsE3TdqUg09mwLdCpPezTpTQV2WgJ4N6IGQ5ZqtKYEqG9GHE3yV00fZMLz0By5/+89G7oXPp5VWQfYCygccwkFmnVyHHQaG8ydTAiEefN8Z1p9H4eXbeEFyWW0jeayLniqUzTj0VyjGMvmbXiIRrxFAQKBgQDTKqwPEJ3GkM9g5Z8p/FUMrrQw7k2hbGmT08gu5wpoReh83WukXQA+FMgVACZWtw3DvV1AWTukEf5wLXrSu/iJNDAc1IreIFCj/GnOkvUpYEOSQ1a1YOPn8y7dnwGc4LG0G/xgEb6oTFzas55AOWLS6n71K2FABN1OC+EHXfyoIwKBgQCvQf0qPozYPeo3CA7cTsjSVt5OxiTJiJNd6WmLZ7O3286pI/9lc/J/RKSmI1o9OawINW1Zlkyqf6taVbHNq1BH8T55QwKXiQSFptdlz1Cj/oBO4Bx8sM47NxxLNtigqEa0OF+Rxsr9HHdxTC7pDIO02jnueXiljXfpzp1RssoeMQKBgEVk85Ar1L2pXw0nyKuCieyWCQ8/cPGIcBWtdk67jHcB6koGddZY3biJGcuU9gRvOa3GsDtyV6AubaAtwfw4248zQFBpJI2krvuE+rxxHPIQ+YO6b2dBxQO3rgIUu/HzAVMAE2r6yd4C4kzY1Duk4C4R89DcBaSFNLjuPHAwWdRjAoGALk2t+JJMHfnFvsJnQreiAUioNYHOSFzIKqC3nPhKGEJ/yFpVaNWIdS2KnsZqWhC5rfWHrYqzOLzAZf6MGn2vmUJYsisNLUIrKrCY6jIq6RkdhzlY7Wy9IBIAbLLR6yhqfcUDIv21tcfmms14+2OuDIM3mRUI1hyZWPGYyPQGyJECgYA4nN/Id9LKgvGR7247/KdSwPQulKCy13NEro2E8fskZEVbj0KCbBpTu0h1i50T0Tv99Utf1/haf18PFl9Dqiujv/76wU8gDPtpb+I2UvbrjOMc8VSAsF2IyWoiwO8lpPh1pFUh/pZJnZcxM815gIxZIdqlq0RnyD5umE7zonxf/A==
+                
+info:
+  system-info: 系统平台

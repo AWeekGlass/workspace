@@ -1,0 +1,32 @@
+server:
+  port: 8500
+
+spring:
+  profiles: dev
+  redis:
+    host: 192.168.12.174
+    port: 6380
+    password: 123456
+    jedis:
+      pool:
+        max-active: 64
+        max-idle: 20
+        min-idle: 2
+        max-wait: 2000
+  main:
+    banner-mode: 'OFF'
+        
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8765/eureka/
+      
+jwt:
+  expire: 14400 #单位（秒）
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key

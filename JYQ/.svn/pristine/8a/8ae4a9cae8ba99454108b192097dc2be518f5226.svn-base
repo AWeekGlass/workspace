@@ -1,0 +1,30 @@
+package com.hengyu.system.web;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.baomidou.mybatisplus.plugins.Page;
+import com.hengyu.common.msg.RestResponse;
+import com.hengyu.system.entity.JoinCompany;
+
+/**
+ * <p>
+ * 申请加入企业表 前端控制器
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-04
+ */
+@Controller
+@RequestMapping("/joinCompany")
+public class JoinCompanyController {
+	
+	@GetMapping
+	public RestResponse<Page<JoinCompany>> queryList(){
+		return null;
+	}
+
+}
+

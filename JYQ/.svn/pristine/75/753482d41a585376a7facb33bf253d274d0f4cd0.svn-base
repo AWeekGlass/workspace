@@ -1,0 +1,16 @@
+package com.hengyu.contract.dao;
+
+import com.hengyu.contract.entity.Industry;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 行业表 Mapper 接口
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+public interface IndustryDAO extends BaseMapper<Industry> {
+
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.system.dao.StoreDAO">
+	<select id="queryTree" resultType="StoreVo">
+		SELECT t1.id,t1.`name`,t1.type,IFNULL(t1.parent_id,'') AS parent_id FROM jyq_store t1 
+			WHERE t1.company_id = #{companyId} AND t1.del_flag = 0
+	</select>
+	
+	<select id="queryCntByName" resultType="int">
+		SELECT COUNT(*) AS cnt FROM jyq_store
+		<where>
+			`name` = #{name} AND del_flag = 0
+			<choose>
+				<when test="parentId != null and parentId != ''">
+					AND parent_id = #{parentId}
+				</when>
+				<otherwise>
+					AND parent_id IS NULL
+				</otherwise>
+			</choose>
+		</where>
+	</select>
+	
+	<select id="queryDept" resultType="StoreVo">
+		SELECT id,`name` FROM jyq_store WHERE `type` = 1 AND company_id = #{companyId} AND del_flag = 0
+	</select>
+	
+	<select id="queryDetailById" resultType="StoreVo">
+		SELECT t1.id,t1.`name`,t1.type,t1.leading_id,t2.user_name AS user_name,t1.introduction,t1.telephone,t1.sign_date,
+			t1.expire_date,t1.organization_address,t1.rent,t1.rent_type,t1.pay_type_id,t1.remark 
+		FROM jyq_store t1 LEFT JOIN jyq_admin t2 ON t1.leading_id = t2.id WHERE t1.id = #{id} AND t1.del_flag = 0
+	</select>
+	
+	<select id="queryStoreById" resultType="StoreShortVo">
+		SELECT t1.id,t1.`name` FROM jyq_store t1 WHERE t1.type = 3 AND t1.del_flag = 0
+			AND FIND_IN_SET(t1.id,getChild((SELECT store_id FROM jyq_admin t2 WHERE t2.id = #{id})))
+	</select>
+	
+	<update id="updateFlagByParentId" parameterType="int">
+		UPDATE jyq_store SET del_flag = 1 WHERE parent_id = #{id}
+	</update>
+	
+	<select id="queryCity" resultType="Store">
+		SELECT * FROM jyq_store WHERE type = #{type} AND del_flag = 0 AND company_id = #{companyId} 
+			AND parent_id = (SELECT store_id FROM jyq_admin WHERE id = #{userId})
+	</select>
+	
+	<select id="queryAllCity" resultType="Store">
+		SELECT * FROM jyq_store WHERE type = #{type} AND del_flag = 0 AND company_id = #{companyId} 
+	</select>
+	
+	<select id="getParentId" resultType="Store">
+		SELECT
+			type,
+			parent_id
+		FROM
+			jyq_store
+		WHERE
+			id = (
+				SELECT
+					store_id
+				FROM
+					jyq_admin t2
+				WHERE
+					t2.id = #{userId}
+			)
+		and company_id = #{companyId}
+		and del_flag = 0
+	</select>
+	
+	<select id="queryAllCityByCity" resultType="StoreShortVo">
+		SELECT
+			t1.id,
+			t1.`name`
+		FROM
+			jyq_store t1
+		WHERE
+			t1.type = 3
+		AND t1.del_flag = 0
+		and company_id = #{companyId}
+	</select>
+	
+	<select id="queryCityByParentId" resultType="StoreShortVo">
+		SELECT
+			t1.id,
+			t1.`name`
+		FROM
+			jyq_store t1
+		WHERE
+			t1.type = 3
+		AND t1.del_flag = 0
+		and parent_id = #{parentId}
+	</select>
+</mapper>

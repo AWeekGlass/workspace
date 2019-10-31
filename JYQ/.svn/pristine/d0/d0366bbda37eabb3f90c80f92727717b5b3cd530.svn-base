@@ -1,0 +1,12 @@
+package com.hengyu.user.vo;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class RolePermissionVo {
+	private Integer roleId;
+	private Integer resourceId;
+	private Integer organizationId;
+}

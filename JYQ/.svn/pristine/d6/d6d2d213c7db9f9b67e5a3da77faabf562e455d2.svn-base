@@ -1,0 +1,83 @@
+package com.hengyu.cases.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 中介案例表
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("jyq_case")
+public class Case extends Model<Case> {
+
+	private static final long serialVersionUID = 1L;
+
+	@TableId(value = "id", type = IdType.AUTO)
+	private Integer id;
+	
+	/**
+	 * 标题
+	 */
+	private String title;
+
+	/**
+	 * 分类ID
+	 */
+	private Integer categoryId;
+	
+	/**
+	 * 类型（1：原创；2：转发）
+	 */
+	private Integer type;
+
+	/**
+	 * 内容
+	 */
+	private String content;
+
+	private Integer adminId;
+
+	private Integer companyId;
+	
+	/**
+	 * 是否草稿（1：是；0：否）
+	 */
+	private Integer isDraft;
+
+	@TableField(fill = FieldFill.INSERT)
+	private Date createTime;
+	
+	/**
+	 * 置顶时间
+	 */
+	private Date topTime;
+
+	/**
+	 * 推荐人
+	 */
+	private Integer refId;
+	
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+}

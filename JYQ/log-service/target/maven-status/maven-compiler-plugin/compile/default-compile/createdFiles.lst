@@ -1,0 +1,6 @@
+com\hengyu\log\interceptor\WebLogAspect.class
+com\hengyu\log\entity\LogInfo.class
+com\hengyu\log\dao\LogInfoDAO.class
+com\hengyu\log\service\LogInfoService.class
+com\hengyu\log\entity\LogInfo$LogInfoBuilder.class
+com\hengyu\log\service\impl\LogInfoServiceImpl.class

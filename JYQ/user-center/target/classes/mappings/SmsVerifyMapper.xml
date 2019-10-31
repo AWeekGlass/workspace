@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.user.dao.SmsVerifyDAO">
+	<select id="verifySmsCode" resultType="SmsVerify">
+		SELECT id,sms_code FROM sys_sms_verify
+		<where>
+			type = #{type} AND phone = #{phone} AND valid_last_time >= #{validLastTime} AND is_valid = 1
+		</where>
+	    ORDER BY create_time DESC LIMIT 1
+	</select>
+</mapper>

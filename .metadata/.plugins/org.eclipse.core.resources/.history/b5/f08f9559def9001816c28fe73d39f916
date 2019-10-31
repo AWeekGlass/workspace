@@ -1,0 +1,147 @@
+package com.zj.alipay.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.fastjson.JSON;
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.domain.AlipayTradePagePayModel;
+import com.alipay.api.internal.util.AlipaySignature;
+import com.alipay.api.request.AlipayTradeCloseRequest;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.request.AlipayTradeQueryRequest;
+import com.alipay.api.response.AlipayTradeCloseResponse;
+import com.alipay.api.response.AlipayTradePagePayResponse;
+import com.alipay.api.response.AlipayTradeQueryResponse;
+
+@Component
+public class AlipayService {
+	@Value("${alipay.serverUrl}")
+	private String serverUrl;
+
+	@Value("${alipay.appId}")
+	private String appId;
+
+	@Value("${alipay.publicKey}")
+	private String publicKey;
+
+	@Value("${alipay.privateKey}")
+	private String privateKey;
+
+	/**
+	 * 支付订单生成
+	 * 
+	 * @param outTradeNo     商户订单号
+	 * @param orderAmount    订单金额
+	 * @param passbackParams 公共回传参数
+	 * @return 预订单信息，可直接给客户端请求
+	 * @throws AlipayApiException
+	 */
+	public String generateTradeOrder(String outTradeNo, String orderAmount, String passbackParams)
+			throws AlipayApiException {
+		// 实例化客户端
+		AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", "2018072460787253", "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCL0OlzxnWnGtck1JF7a407tkoRomk1G2zRkCXwZag7CfVci45TPDWMRAEKqL8tUKzGAepPu6uBYqYCHnKPAV1QPNXUvv3o07B4EAWKNWMWW9XQ0WRLtU4F4z7HQ9KZ3pvz1", "json", "UTF-8","MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi9Dpc8Z1pxrXJNSRe2uNO7ZKEaJpNRts0ZAl8GWoOwn1XIuOUzw1jEQBCqi/LVCsxgHqT7urgWKmAh5yjwFdUDzV1L796NOweBAFijVjFlvV0NFkS7VOBeM+x0PSmd6b89fpOKRFb0nJqyAUmQqm8/+MTRf5e6NqegEBX3xE623cQnTnER9ZPjjl2zOpkS94nd7qPuCKbVpAikrRw3lB8XnRMucrSR2s+WB87lEfFV0iv7QSwqSr5OsuQOZpBgMXaRHjpqMN46b/uMYftmhOxPfVCupkqRVuzu0QkvuAz/KwDAf0+Fo/yDIKLpiuUXJ5mVKcGn3iBtwOqPJLmzuDVQIDAQAB","RSA2");
+		// 实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.trade.app.pay
+		AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
+		// 支付订单回调地址
+		request.setNotifyUrl("http://localhost:8080/aliPayNotify");
+//
+//		Map<String, String> params = new HashMap<>();
+//		params.put("out_trade_no", outTradeNo);
+//		params.put("total_amount", orderAmount);
+//		params.put("subject", "支付测试");
+//		params.put("body", "支付测试Java");
+//		params.put("product_code", "QUICK_MSECURITY_PAY");
+//		request.setBizContent(JSON.toJSONString(params));
+
+		request.setBizContent("{\"out_trade_no\":\""+ outTradeNo +"\"," 
+				+ "\"total_amount\":\""+ orderAmount +"\"," 
+				+ "\"subject\":\""+ "支付测试" +"\"," 
+				+ "\"body\":\""+ "支付测试Java" +"\"," 
+				+ "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+		
+		// 这里和普通的接口调用不同，使用的是sdkExecute
+		AlipayTradePagePayResponse response = alipayClient.pageExecute(request);
+		// 就是orderString 可以直接给客户端请求，无需再做处理。
+		return response.getBody();
+	}
+
+	/**
+	 * 支付宝支付订单回调
+	 * 
+	 * @param request
+	 * @return
+	 * @throws AlipayApiException
+	 */
+	public Map<String, String> orderCallback(HttpServletRequest request) throws AlipayApiException {
+		Map<String, String> params = new HashMap<String, String>();
+		Map<String, String[]> map = request.getParameterMap();
+		for (String key : map.keySet()) {
+			String[] paramValues = request.getParameterValues(key);
+			if (paramValues.length == 1) {
+				String value = paramValues[0];
+				params.put(key, value);
+			}
+		}
+		boolean flag = AlipaySignature.rsaCheckV1(params, publicKey, "UTF-8", "RSA2");
+		if (flag) {
+			return params;
+		}
+		return null;
+	}
+
+	/**
+	 * 支付交易订单查询
+	 * 
+	 * @param outTradeNo 商户订单号
+	 * @param tradeNo    支付宝交易号
+	 * @throws AlipayApiException
+	 */
+	public boolean tradeQuery(String outTradeNo, String tradeNo) throws AlipayApiException {
+		AlipayClient alipayClient = new DefaultAlipayClient(serverUrl, appId, privateKey, "json", "UTF-8", publicKey,
+				"RSA2");
+		AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
+		Map<String, String> bizContent = new HashMap<>();
+		if (StringUtils.isNotBlank(outTradeNo)) {
+			bizContent.put("out_trade_no", outTradeNo);
+		}
+		if (StringUtils.isNotBlank(tradeNo)) {
+			bizContent.put("trade_no", tradeNo);
+		}
+		request.setBizContent(JSON.toJSONString(bizContent));
+		AlipayTradeQueryResponse response = alipayClient.execute(request);
+		return response.isSuccess();
+	}
+
+	/**
+	 * 交易关闭
+	 * 
+	 * @param outTradeNo 商户订单号
+	 * @param tradeNo    支付宝交易号
+	 * @return
+	 * @throws AlipayApiException
+	 */
+	public boolean tradeClose(String outTradeNo, String tradeNo) throws AlipayApiException {
+		AlipayClient alipayClient = new DefaultAlipayClient(serverUrl, appId, privateKey, "json", "UTF-8", publicKey,
+				"RSA2");
+		AlipayTradeCloseRequest request = new AlipayTradeCloseRequest();
+		Map<String, String> bizContent = new HashMap<>();
+		if (StringUtils.isNotBlank(outTradeNo)) {
+			bizContent.put("out_trade_no", outTradeNo);
+		}
+		if (StringUtils.isNotBlank(tradeNo)) {
+			bizContent.put("trade_no", tradeNo);
+		}
+		request.setBizContent(JSON.toJSONString(bizContent));
+		AlipayTradeCloseResponse response = alipayClient.execute(request);
+		return response.isSuccess();
+	}
+}

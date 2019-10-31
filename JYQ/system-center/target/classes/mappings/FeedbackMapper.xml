@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.system.dao.FeedbackDAO">
+
+	<select id="getList" resultType="Feedback">
+		SELECT
+			t1.*, CASE
+		WHEN t1.`status` = 1 THEN
+			'记录'
+		WHEN t1.`status` = 2 THEN
+			'未记录'
+		END AS statusName,
+		 t2.user_name
+		FROM
+			sys_feedback t1
+		LEFT JOIN jyq_admin t2 ON t1.admin_id = t2.id
+		<where>
+			<if test="adminId !=null">
+				and t1.admin_id = #{adminId}
+			</if>
+			<if test="content != null and content !=''">
+				and t1.content like CONCAT('%',#{content},'%')
+			</if>
+			<if test="status != null ">
+				and t1.status = #{status}
+			</if>
+			<if test="companyId != null">
+				and t1.company_id =#{companyId}
+			</if>
+		</where>
+	</select>
+	
+	<select id="queryById" resultType="Feedback">
+		SELECT
+			t1.*, CASE
+		WHEN t1.`status` = 1 THEN
+			'记录'
+		WHEN t1.`status` = 2 THEN
+			'未记录'
+		END AS statusName,
+		 t2.user_name userName
+		FROM
+			sys_feedback t1
+		LEFT JOIN jyq_admin t2 ON t1.admin_id = t2.id
+		WHERE
+			t1.id = #{id}
+	</select>
+</mapper>

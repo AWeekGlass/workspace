@@ -1,0 +1,20 @@
+package com.hengyu.system.service.impl;
+
+import com.hengyu.system.entity.Apply;
+import com.hengyu.system.dao.ApplyDAO;
+import com.hengyu.system.service.ApplyService;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 公司申请表 服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-10-16
+ */
+@Service
+public class ApplyServiceImpl extends ServiceImpl<ApplyDAO, Apply> implements ApplyService {
+
+}

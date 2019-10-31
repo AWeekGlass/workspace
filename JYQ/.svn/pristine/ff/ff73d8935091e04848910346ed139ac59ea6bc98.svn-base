@@ -1,0 +1,16 @@
+package com.hengyu.cases.dao;
+
+import com.hengyu.cases.entity.Question;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-14
+ */
+public interface QuestionDAO extends BaseMapper<Question> {
+
+}

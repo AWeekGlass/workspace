@@ -1,0 +1,78 @@
+server:
+  port: 8200
+
+spring:
+  profiles:
+    active: dev
+  redis:
+    host: 127.0.0.1
+    port: 6380
+    password: 123456
+    jedis:
+      pool:
+        max-active: 64
+        max-idle: 20
+        min-idle: 2
+        max-wait: 2000
+  datasource:
+    druid:
+      url: jdbc:mysql://47.97.185.156:3306/jyq?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useLocalSessionState=true
+      driver-class-name: org.gjt.mm.mysql.Driver
+      username: root
+      password: SAok123
+      max-active: 64
+      validation-query: SELECT 'x'
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    banner-mode: 'OFF'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+      
+mybatis-plus:
+  mapper-locations: classpath:mappings/*.xml
+  type-aliases-package: com.hengyu.log.entity,com.hengyu.system.entity,com.hengyu.system.vo,com.hengyu.system.entity,com.hengyu.system.po
+  global-config:
+    id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    field-strategy: 1 #字段策略   0:忽略判断  1:非 NULL 判断  2:非空判断
+    db-column-underline: true
+    refresh-mapper: true
+    meta-object-handler: com.hengyu.common.handler.SystemMetaObjectHandler
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+        
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8765/eureka/
+      
+jwt:
+  expire: 14400 #单位（秒）
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key
+               
+company:
+  upload-img-path: companyLogo/img/
+  
+file.path: http://192.168.12.62:90/
+
+ftp:
+  address: 192.168.12.62
+  password: 123456
+              
+info:
+  system-info: 系统平台

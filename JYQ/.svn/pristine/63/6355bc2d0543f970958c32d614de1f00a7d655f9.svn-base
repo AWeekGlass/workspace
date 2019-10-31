@@ -1,0 +1,16 @@
+package com.hengyu.cases.service;
+
+import com.hengyu.cases.entity.Answer;
+import com.baomidou.mybatisplus.service.IService;
+
+/**
+ * <p>
+ * 问答回答 服务类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-17
+ */
+public interface AnswerService extends IService<Answer> {
+
+}

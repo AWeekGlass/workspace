@@ -1,0 +1,30 @@
+package com.hengyu.system.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.hengyu.system.entity.Order;
+
+/**
+ * <p>
+ * 订单表 Mapper 接口
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-05
+ */
+public interface OrderDAO extends BaseMapper<Order> {
+
+	Integer queryMaxNum(@Param("companyId")Integer companyId);
+	
+	Order queryDetaile(Order order);
+	
+	/**
+	 * 查询订单列表
+	 * @param order
+	 * @return
+	 */
+	List<Order> queryList(Order order);
+}

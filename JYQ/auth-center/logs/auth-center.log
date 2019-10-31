@@ -1,0 +1,422 @@
+2019-01-11 09:55:32,464 [INFO] [main] o.s.context.annotation.AnnotationConfigApplicationContext [AbstractApplicationContext.java : 590] Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@bff34c6: startup date [Fri Jan 11 09:55:32 CST 2019]; root of context hierarchy
+2019-01-11 09:55:32,628 [INFO] [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor [AutowiredAnnotationBeanPostProcessor.java : 153] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-01-11 09:55:32,658 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 326] Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$4033c4f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-11 09:55:33,978 [INFO] [main] com.hengyu.AuthCenterApplication [SpringApplication.java : 666] The following profiles are active: dev
+2019-01-11 09:55:33,991 [INFO] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 590] Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7e31ce0f: startup date [Fri Jan 11 09:55:33 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@bff34c6
+2019-01-11 09:55:34,763 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 163] Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-11 09:55:35,083 [INFO] [main] org.springframework.cloud.context.scope.GenericScope [GenericScope.java : 294] BeanFactory id=443c0a95-9d16-3a86-8ea9-472a704654c5
+2019-01-11 09:55:35,099 [INFO] [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor [AutowiredAnnotationBeanPostProcessor.java : 153] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-01-11 09:55:35,341 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 326] Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$4033c4f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-11 09:55:35,760 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 91] Tomcat initialized with port(s): 8500 (http)
+2019-01-11 09:55:35,780 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 180] Starting service [Tomcat]
+2019-01-11 09:55:35,780 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 180] Starting Servlet Engine: Apache Tomcat/8.5.32
+2019-01-11 09:55:35,780 [INFO] [localhost-startStop-1] org.apache.catalina.core.AprLifecycleListener [DirectJDKLog.java : 180] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Java\jdk1.8.0_191\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Java\jdk1.8.0_191\jre\bin;C:/Java/jdk1.8.0_191/bin/../jre/bin/server;C:/Java/jdk1.8.0_191/bin/../jre/bin;C:/Java/jdk1.8.0_191/bin/../jre/lib/amd64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Java\jdk1.8.0_191\bin;C:\Program Files\TortoiseSVN\bin;D:\apache-maven-3.6.0\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\Administrator\AppData\Roaming\npm;D:\sts-bundle\sts-3.9.6.RELEASE;;.]
+2019-01-11 09:55:35,890 [INFO] [localhost-startStop-1] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 180] Initializing Spring embedded WebApplicationContext
+2019-01-11 09:55:35,890 [INFO] [localhost-startStop-1] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 285] Root WebApplicationContext: initialization completed in 1899 ms
+2019-01-11 09:55:36,060 [WARN] [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource [URLConfigurationSource.java : 121] No URLs will be polled as dynamic configuration sources.
+2019-01-11 09:55:36,060 [INFO] [localhost-startStop-1] com.netflix.config.sources.URLConfigurationSource [URLConfigurationSource.java : 122] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-01-11 09:55:36,070 [INFO] [localhost-startStop-1] com.netflix.config.DynamicPropertyFactory [DynamicPropertyFactory.java : 281] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@d8109c9
+2019-01-11 09:55:37,522 [INFO] [localhost-startStop-1] org.springframework.cloud.commons.util.InetUtils [InetUtils.java : 170] Cannot determine local hostname
+2019-01-11 09:55:38,759 [INFO] [localhost-startStop-1] org.springframework.cloud.commons.util.InetUtils [InetUtils.java : 170] Cannot determine local hostname
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'requestContextFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean [AbstractFilterRegistrationBean.java : 245] Mapping filter: 'httpTraceFilter' to: [/*]
+2019-01-11 09:55:39,537 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean [ServletRegistrationBean.java : 187] Servlet dispatcherServlet mapped to [/]
+2019-01-11 09:55:39,587 [INFO] [main] o.s.context.annotation.AnnotationConfigApplicationContext [AbstractApplicationContext.java : 590] Refreshing FeignContext-USER-CENTER: startup date [Fri Jan 11 09:55:39 CST 2019]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7e31ce0f
+2019-01-11 09:55:39,607 [INFO] [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor [AutowiredAnnotationBeanPostProcessor.java : 153] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-01-11 09:55:39,807 [INFO] [main] o.s.context.annotation.AnnotationConfigApplicationContext [AbstractApplicationContext.java : 590] Refreshing FeignContext-SYSTEM-CENTER: startup date [Fri Jan 11 09:55:39 CST 2019]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7e31ce0f
+2019-01-11 09:55:39,824 [INFO] [main] o.s.b.f.annotation.AutowiredAnnotationBeanPostProcessor [AutowiredAnnotationBeanPostProcessor.java : 153] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-01-11 09:55:40,324 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/auth/logout],methods=[GET]}" onto public com.hengyu.common.msg.RestResponse<java.lang.String> com.hengyu.auth.web.AuthController.logout(java.lang.String) throws java.lang.Exception
+2019-01-11 09:55:40,324 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/auth/login],methods=[GET]}" onto public com.hengyu.common.msg.RestResponse<java.lang.String> com.hengyu.auth.web.AuthController.login(java.lang.String,java.lang.String) throws java.lang.Exception
+2019-01-11 09:55:40,324 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-01-11 09:55:40,324 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-01-11 09:55:40,324 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-01-11 09:55:40,334 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-01-11 09:55:40,334 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-01-11 09:55:40,455 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 59] Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-01-11 09:55:40,475 [INFO] [main] o.s.b.a.endpoint.web.servlet.WebMvcEndpointHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2019-01-11 09:55:40,475 [INFO] [main] o.s.b.a.endpoint.web.servlet.WebMvcEndpointHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2019-01-11 09:55:40,475 [INFO] [main] o.s.b.a.endpoint.web.servlet.WebMvcEndpointHandlerMapping [AbstractHandlerMethodMapping.java : 547] Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-01-11 09:55:40,665 [INFO] [main] s.d.spring.web.PropertySourcedRequestMappingHandlerMapping [PropertySourcedRequestMappingHandlerMapping.java : 69] Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-01-11 09:55:40,765 [WARN] [main] com.netflix.config.sources.URLConfigurationSource [URLConfigurationSource.java : 121] No URLs will be polled as dynamic configuration sources.
+2019-01-11 09:55:40,765 [INFO] [main] com.netflix.config.sources.URLConfigurationSource [URLConfigurationSource.java : 122] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-01-11 09:55:40,845 [INFO] [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping [AbstractUrlHandlerMapping.java : 373] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-01-11 09:55:41,037 [INFO] [main] o.s.w.s.mvc.method.annotation.RequestMappingHandlerAdapter [RequestMappingHandlerAdapter.java : 574] Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7e31ce0f: startup date [Fri Jan 11 09:55:33 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@bff34c6
+2019-01-11 09:55:41,097 [INFO] [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping [AbstractUrlHandlerMapping.java : 373] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-01-11 09:55:41,097 [INFO] [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping [AbstractUrlHandlerMapping.java : 373] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-01-11 09:55:41,816 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 433] Registering beans for JMX exposure on startup
+2019-01-11 09:55:41,826 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 895] Bean with name 'environmentManager' has been autodetected for JMX exposure
+2019-01-11 09:55:41,836 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 895] Bean with name 'refreshScope' has been autodetected for JMX exposure
+2019-01-11 09:55:41,836 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 895] Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2019-01-11 09:55:41,836 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 675] Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2019-01-11 09:55:41,856 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 675] Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2019-01-11 09:55:41,871 [INFO] [main] o.s.jmx.export.annotation.AnnotationMBeanExporter [MBeanExporter.java : 675] Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=7e31ce0f,type=ConfigurationPropertiesRebinder]
+2019-01-11 09:55:41,881 [INFO] [main] o.springframework.context.support.DefaultLifecycleProcessor [DefaultLifecycleProcessor.java : 351] Starting beans in phase 0
+2019-01-11 09:55:41,891 [INFO] [main] org.springframework.cloud.netflix.eureka.InstanceInfoFactory [InstanceInfoFactory.java : 71] Setting initial instance status as: STARTING
+2019-01-11 09:55:41,921 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 349] Initializing Eureka in region us-east-1
+2019-01-11 09:55:42,267 [INFO] [main] com.netflix.discovery.provider.DiscoveryJerseyProvider [DiscoveryJerseyProvider.java : 70] Using JSON encoding codec LegacyJacksonJson
+2019-01-11 09:55:42,267 [INFO] [main] com.netflix.discovery.provider.DiscoveryJerseyProvider [DiscoveryJerseyProvider.java : 71] Using JSON decoding codec LegacyJacksonJson
+2019-01-11 09:55:42,377 [INFO] [main] com.netflix.discovery.provider.DiscoveryJerseyProvider [DiscoveryJerseyProvider.java : 80] Using XML encoding codec XStreamXml
+2019-01-11 09:55:42,377 [INFO] [main] com.netflix.discovery.provider.DiscoveryJerseyProvider [DiscoveryJerseyProvider.java : 81] Using XML decoding codec XStreamXml
+2019-01-11 09:55:42,620 [INFO] [main] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 958] Disable delta property : false
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 959] Single vip registry refresh property : null
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 960] Force full registry fetch : false
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 961] Application is null : false
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 962] Registered Applications size is zero : true
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 964] Application version is -1: true
+2019-01-11 09:55:42,770 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1047] Getting all instance registry info from the eureka server
+2019-01-11 09:55:44,840 [ERROR] [main] c.n.d.shared.transport.decorator.RedirectingEurekaHttpClient [RedirectingEurekaHttpClient.java : 83] Request execution error
+com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+	at com.sun.jersey.api.client.Client.handle(Client.java:652)
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+	at com.sun.jersey.api.client.WebResource$Builder.get(WebResource.java:509)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplicationsInternal(AbstractJerseyEurekaHttpClient.java:194)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.getApplications(AbstractJerseyEurekaHttpClient.java:165)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1051)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:965)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:414)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:269)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:63)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:269)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17.CGLIB$eurekaClient$1(<generated>)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17$$FastClassBySpringCGLIB$$68b69278.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17.eurekaClient(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:167)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:156)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:57)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:39)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:80)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:52)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:157)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:121)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:885)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at com.hengyu.AuthCenterApplication.main(AuthCenterApplication.java:13)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+	... 68 common frames omitted
+2019-01-11 09:55:44,844 [WARN] [main] c.n.d.shared.transport.decorator.RetryableEurekaHttpClient [RetryableEurekaHttpClient.java : 130] Request execution failed with message: java.net.ConnectException: Connection refused: connect
+2019-01-11 09:55:44,845 [ERROR] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 972] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500 - was unable to refresh its cache! status = Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
+	at com.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry(DiscoveryClient.java:1051)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:965)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:414)
+	at com.netflix.discovery.DiscoveryClient.<init>(DiscoveryClient.java:269)
+	at org.springframework.cloud.netflix.eureka.CloudEurekaClient.<init>(CloudEurekaClient.java:63)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration.eurekaClient(EurekaClientAutoConfiguration.java:269)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17.CGLIB$eurekaClient$1(<generated>)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17$$FastClassBySpringCGLIB$$68b69278.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361)
+	at org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration$$EnhancerBySpringCGLIB$$479cbe17.eurekaClient(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1096)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:535)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:353)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.getBean(GenericScope.java:390)
+	at org.springframework.cloud.context.scope.GenericScope.get(GenericScope.java:184)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:350)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getTargetObject(EurekaRegistration.java:167)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration.getEurekaClient(EurekaRegistration.java:156)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.maybeInitializeClient(EurekaServiceRegistry.java:57)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry.register(EurekaServiceRegistry.java:39)
+	at org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration.start(EurekaAutoServiceRegistration.java:80)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:52)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:157)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:121)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:885)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:553)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246)
+	at com.hengyu.AuthCenterApplication.main(AuthCenterApplication.java:13)
+2019-01-11 09:55:44,846 [WARN] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 290] Using default backup registry implementation which does not do anything.
+2019-01-11 09:55:44,846 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1264] Starting heartbeat executor: renew interval is: 30
+2019-01-11 09:55:44,846 [INFO] [main] com.netflix.discovery.InstanceInfoReplicator [InstanceInfoReplicator.java : 60] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-01-11 09:55:44,846 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 449] Discovery Client initialized at timestamp 1547171744846 with initial instances count: 0
+2019-01-11 09:55:44,856 [INFO] [main] o.s.c.netflix.eureka.serviceregistry.EurekaServiceRegistry [EurekaServiceRegistry.java : 42] Registering application auth-center with eureka with status UP
+2019-01-11 09:55:44,866 [INFO] [main] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1299] Saw local status change event StatusChangeEvent [timestamp=1547171744866, current=UP, previous=STARTING]
+2019-01-11 09:55:44,866 [INFO] [main] o.springframework.context.support.DefaultLifecycleProcessor [DefaultLifecycleProcessor.java : 351] Starting beans in phase 2147483647
+2019-01-11 09:55:44,876 [INFO] [main] s.d.spring.web.plugins.DocumentationPluginsBootstrapper [DocumentationPluginsBootstrapper.java : 151] Context refreshed
+2019-01-11 09:55:44,876 [INFO] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 826] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500: registering service...
+2019-01-11 09:55:44,886 [INFO] [main] s.d.spring.web.plugins.DocumentationPluginsBootstrapper [DocumentationPluginsBootstrapper.java : 154] Found 1 custom documentation plugin(s)
+2019-01-11 09:55:44,926 [INFO] [main] s.d.spring.web.scanners.ApiListingReferenceScanner [ApiListingReferenceScanner.java : 41] Scanning for api listing references
+2019-01-11 09:55:45,076 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 206] Tomcat started on port(s): 8500 (http) with context path ''
+2019-01-11 09:55:45,076 [INFO] [main] o.s.c.n.eureka.serviceregistry.EurekaAutoServiceRegistration [EurekaAutoServiceRegistration.java : 124] Updating port to 8500
+2019-01-11 09:55:45,086 [INFO] [main] com.hengyu.AuthCenterApplication [StartupInfoLogger.java : 59] Started AuthCenterApplication in 14.228 seconds (JVM running for 14.913)
+2019-01-11 09:55:46,909 [ERROR] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.shared.transport.decorator.RedirectingEurekaHttpClient [RedirectingEurekaHttpClient.java : 83] Request execution error
+com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused: connect
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187)
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123)
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27)
+	at com.sun.jersey.api.client.Client.handle(Client.java:652)
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682)
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74)
+	at com.sun.jersey.api.client.WebResource$Builder.post(WebResource.java:570)
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.register(AbstractJerseyEurekaHttpClient.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:610)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:445)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173)
+	... 30 common frames omitted
+2019-01-11 09:55:46,910 [WARN] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.shared.transport.decorator.RetryableEurekaHttpClient [RetryableEurekaHttpClient.java : 130] Request execution failed with message: java.net.ConnectException: Connection refused: connect
+2019-01-11 09:55:46,910 [WARN] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 831] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2019-01-11 09:55:46,910 [WARN] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.InstanceInfoReplicator [InstanceInfoReplicator.java : 125] There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2019-01-11 09:56:14,857 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 958] Disable delta property : false
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 959] Single vip registry refresh property : null
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 960] Force full registry fetch : false
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 961] Application is null : false
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 962] Registered Applications size is zero : true
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 964] Application version is -1: true
+2019-01-11 09:56:14,858 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1047] Getting all instance registry info from the eureka server
+2019-01-11 09:56:14,887 [INFO] [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 850] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500 - Re-registering apps/AUTH-CENTER
+2019-01-11 09:56:14,887 [INFO] [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 826] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500: registering service...
+2019-01-11 09:56:14,897 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1056] The response status is 200
+2019-01-11 09:56:14,917 [INFO] [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 835] DiscoveryClient_AUTH-CENTER/localhost:auth-center:8500 - registration status: 204
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 958] Disable delta property : false
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 959] Single vip registry refresh property : null
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 960] Force full registry fetch : false
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 961] Application is null : false
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 962] Registered Applications size is zero : true
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 964] Application version is -1: false
+2019-01-11 09:56:44,907 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1047] Getting all instance registry info from the eureka server
+2019-01-11 09:56:44,939 [INFO] [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient [DiscoveryClient.java : 1056] The response status is 200
+2019-01-11 10:00:42,784 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:05:42,786 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:10:42,794 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:15:42,795 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:20:42,797 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:25:42,798 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:30:42,798 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:35:42,799 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:40:42,800 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:45:42,801 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:50:42,802 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 10:55:42,804 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:00:42,805 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:05:42,806 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:10:42,807 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:15:42,808 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:20:42,809 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:25:42,810 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:30:42,811 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:35:42,813 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:40:42,814 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:45:42,815 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:50:42,816 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 11:55:42,817 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:00:42,819 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:05:42,820 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:10:42,821 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:15:42,823 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:26:44,349 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:31:44,351 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:36:44,351 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:41:44,353 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:46:44,354 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:51:44,355 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 12:56:44,356 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:01:44,358 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:06:44,359 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:11:44,360 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:16:44,362 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:21:44,363 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:26:44,364 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:31:44,366 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:36:44,366 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:41:44,366 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:46:44,367 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:51:44,368 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 13:56:44,368 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:01:44,369 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:06:44,370 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:11:44,371 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:16:44,372 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:21:44,373 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:26:44,375 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:31:44,376 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:36:44,377 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:41:44,378 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:46:44,380 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:51:44,381 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 14:56:44,381 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:01:44,383 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:06:44,384 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:11:44,385 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:16:44,386 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:21:44,387 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:26:44,388 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:31:44,390 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:36:44,391 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:41:44,392 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:46:44,394 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:51:44,395 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 15:56:44,396 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:01:44,397 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:06:44,397 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:11:44,399 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:16:44,400 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:21:44,401 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:26:44,402 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:31:44,403 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:36:44,404 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:41:44,405 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:46:44,405 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:51:44,406 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 16:56:44,409 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration
+2019-01-11 17:01:44,409 [INFO] [AsyncResolver-bootstrap-executor-0] c.n.discovery.shared.resolver.aws.ConfigClusterResolver [ConfigClusterResolver.java : 43] Resolving eureka endpoints via configuration

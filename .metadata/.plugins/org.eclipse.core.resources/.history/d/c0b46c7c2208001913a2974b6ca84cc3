@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.exam.dao.QuestionDAO">
+	<resultMap type="QuestionsVo" id="questionMap">
+		<result property="type" column="type"/>
+		<collection property="questions" ofType="QuestionVo">
+			<result property="id" column="id"/>
+			<result property="code" column="code"/>
+			<result property="question" column="question"/>
+			<result property="mark" column="mark"/>
+			<result property="result" column="result"/>
+			<result property="options" column="options"/>
+			<result property="category" column="category"/>
+			<result property="remark" column="answerRemark"/>
+			<result property="status" column="status"/>
+			<result property="createTime" column="create_time"/>
+			<result property="categoryName" column="category_name"/>
+			<result property="typeName" column="type_name"/>
+			<result property="adminName" column="admin_name"/>
+			<result property="approveName" column="approve_name"/>
+			<result property="statuName" column="statu_name"/>
+			<result property="record" column="record"/>
+			<result property="right" column="right"/>
+			<result property="userAnswer" column="user_answer"/>
+			<result property="score" column="score"/>
+		</collection>
+	</resultMap>
+	
+	<resultMap type="QuestionVo" id="queryQuestionsMap">
+		<result property="id" column="question_id"/>
+		<result property="code" column="code"/>
+		<result property="question" column="question"/>
+		<result property="category" column="category"/>
+		<result property="createTime" column="create_time"/>
+		<result property="adminName" column="adminName"/>
+		<result property="approveName" column="approveName"/>
+		<result property="result" column="result"/>
+		<result property="status" column="status"/>
+		<result property="statuName" column="statuName"/>
+		<result property="categoryName" column="categoryName"/>
+		<result property="typeName" column="typeName"/>
+		<result property="options" column="options"/>
+		<result property="remark" column="remark"/>
+		<collection property="cityList" ofType="QuestionCity" column="{state = state,questionId = question_id}"
+                    select="getCityList">
+        </collection>
+	</resultMap>
+	
+	<resultMap type="QuestionCity" id="questionCityMap">
+		<result property="cityId" column="id"/>
+		<result property="cityName" column="name"/>
+	</resultMap>
+	
+	<select id="getCityList" resultMap="questionCityMap">
+		SELECT
+			t3.id,
+			t3.`name`
+		FROM
+			edu_question t1
+		LEFT JOIN edu_question_city t2 ON t1.id = t2.question_id
+		LEFT JOIN jyq_store t3 on t2.city_id = t3.id
+		where t1.id = #{questionId}
+		<if test="state != null">
+			and t2.state = #{state}
+		</if>
+	</select>
+	
+	<select id="queryTypeQuestionByPaperId" resultMap="questionMap">
+		SELECT
+				DISTINCT t1.*, 
+				t2.`name` category_name,
+				t3.`name` type_name,
+				t4.user_name admin_name,
+				t5.user_name approve_name,
+				CASE t1.`status`
+				WHEN 1 THEN
+					'通过'
+				WHEN 2 THEN
+					'待审核'
+				WHEN 3 THEN
+					'驳回'
+				END AS statu_name,
+				t6.record
+			FROM
+				`edu_question` t1
+			LEFT JOIN jyq_category t2 ON t1.category = t2.id
+			LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value`
+			AND t3.type = 'subject'
+			LEFT JOIN jyq_admin t4 ON t1.admin_id = t4.id
+			LEFT JOIN jyq_admin t5 ON t1.approve_user = t5.id
+			LEFT JOIN edu_test_paper_question t6 ON t1.id = t6.question_id WHERE t6.paper_id = #{paperId}
+	</select>
+	
+	<select id="queryTypeChecked" resultMap="questionMap">
+		SELECT DISTINCT
+			t4.*, t5.`name` category_name,
+			t6.`name` type_name,
+			t7.user_name admin_name,
+			t8.user_name approve_name,
+			CASE t4.`status`
+		WHEN 1 THEN
+			'通过'
+		WHEN 2 THEN
+			'待审核'
+		WHEN 3 THEN
+			'驳回'
+		END AS statu_name,
+		 t9.record,
+		 t1.user_answer,
+		 t1.RIGHT,
+		 t1.score,
+		 t1.mark answerRemark
+		FROM
+			edu_test_paper t2
+		LEFT JOIN edu_test_paper_user t3 ON t3.paper_id = t2.id
+		LEFT JOIN edu_test_paper_question t9 ON t2.id = t9.paper_id
+		LEFT JOIN `edu_question` t4 ON t9.question_id = t4.id
+		LEFT JOIN edu_test_answer t1 ON t1.test_user_id = t3.id
+		AND t1.question_id = t4.id
+		LEFT JOIN jyq_category t5 ON t4.category = t5.id
+		LEFT JOIN sys_dictionary t6 ON t4.type = t6.`value`
+		AND t6.type = 'subject'
+		LEFT JOIN jyq_admin t7 ON t4.admin_id = t7.id
+		LEFT JOIN jyq_admin t8 ON t4.approve_user = t8.id
+		WHERE
+			t2.id = #{paperId}
+		AND t3.user_id = #{userId}
+	</select>
+	
+	<select id="queryQuestionByPaperId" resultType="QuestionVo">
+		SELECT
+				DISTINCT t1.*, 
+				t2.`name` categoryName,
+				t3.`name` typeName,
+				t4.user_name adminName,
+				t5.user_name approveName,
+				CASE t1.`status`
+				WHEN 1 THEN
+					'通过'
+				WHEN 2 THEN
+					'待审核'
+				WHEN 3 THEN
+					'驳回'
+				END AS statuName,
+				t6.record
+			FROM
+				`edu_question` t1
+			LEFT JOIN jyq_category t2 ON t1.category = t2.id
+			LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value`
+			AND t3.type = 'subject'
+			LEFT JOIN jyq_admin t4 ON t1.admin_id = t4.id
+			LEFT JOIN jyq_admin t5 ON t1.approve_user = t5.id
+			LEFT JOIN edu_test_paper_question t6 ON t1.id = t6.question_id WHERE t6.paper_id = #{paperId}
+	</select>
+	
+	<select id="queryQuestionsByCompanyId" resultMap="queryQuestionsMap">
+		SELECT
+			#{state} state,
+			t1.question_id,
+			GROUP_CONCAT(t3. NAME) cityInfo,
+			t4.*, t5.`name` categoryName,
+			t6.`name` typeName,
+			t7.user_name adminName,
+			t8.user_name approveName,
+			CASE t4.`status`
+		WHEN 1 THEN
+			'通过'
+		WHEN 2 THEN
+			'待审核'
+		WHEN 3 THEN
+			'驳回'
+		END AS statuName
+		FROM
+			edu_question_city t1
+		INNER JOIN (
+			SELECT
+				question_id
+			FROM
+				edu_question_city t1
+			<where>
+				<if test="cityId != null and cityId != ''">
+					and t1.city_id = #{cityId}
+				</if>
+				<if test="state != null">
+					and t1.state = #{state}
+				</if>
+			</where>			
+		) t2 ON t1.question_id = t2.question_id
+		LEFT JOIN jyq_store t3 ON t1.city_id = t3.id
+		INNER JOIN `edu_question` t4 ON t1.question_id = t4.id
+		LEFT JOIN jyq_category t5 ON t4.category = t5.id
+		LEFT JOIN sys_dictionary t6 ON t4.type = t6.`value`
+		AND t6.type = 'subject'
+		LEFT JOIN jyq_admin t7 ON t4.admin_id = t7.id
+		LEFT JOIN jyq_admin t8 ON t4.approve_user = t8.id
+		<where>
+			<if test="type != null and type != '0'.toString()">
+				AND t4.type = #{type}
+			</if>
+			<if test="category != null and category != '0'.toString()">
+				AND t4.category = #{category}			
+			</if>
+			<if test="searchKey != null and searchKey != ''">
+				AND (t7.user_name LIKE CONCAT('%',#{searchKey},'%') 
+						OR t8.user_name LIKE CONCAT('%',#{searchKey},'%')
+						OR t3.`name` LIKE CONCAT('%',#{searchKey},'%'))
+			</if>
+			<if test="status != null and status != '0'.toString()">
+				AND t4.status = #{status}	
+			</if>
+			<if test="status != null and status == '2'.toString()">
+				AND t4.admin_id &lt;> #{userId}
+			</if>
+			<if test="companyId != null and companyId != '0'.toString()">
+				AND t4.company_id = #{companyId}
+				<if test ="searchType != null and searchType == 2">
+					AND t4.admin_id = #{userId}
+				</if>
+			</if>
+		</where>
+		GROUP BY t1.question_id
+		ORDER BY 
+		t4.status
+		<if test="orderRule != null and orderRule != ''">
+			 desc
+		</if>,
+		 t4.create_time DESC
+	</select>
+	
+	<select id="queryDetailById" resultType="QuestionVo">
+		SELECT
+			DISTINCT t1.*, 
+			t2.`name` categoryName,
+			t3.`name` typeName,
+			t4.user_name adminName,
+			t5.user_name approveName,
+			CASE t1.`status`
+			WHEN 1 THEN
+				'通过'
+			WHEN 2 THEN
+				'待审核'
+			WHEN 3 THEN
+				'驳回'
+			END AS statuName
+		FROM
+			`edu_question` t1
+		LEFT JOIN jyq_category t2 ON t1.category = t2.id
+		LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value`
+		AND t3.type = 'subject'
+		LEFT JOIN jyq_admin t4 ON t1.admin_id = t4.id
+		LEFT JOIN jyq_admin t5 ON t1.approve_user = t5.id
+		LEFT JOIN edu_question_city t6 on t1.id = t6.question_id
+		<where>
+			t1.id =#{id}
+		</where>
+	</select>
+	
+	<select id="count" resultType="CountVo">
+		SELECT
+			CASE t1.type
+			WHEN 1 THEN
+				'单选题'
+			WHEN 2 THEN
+				'多选题'
+			WHEN 3 THEN
+				'判断题'
+			WHEN 4 THEN
+				'填空题'
+			WHEN 5 THEN
+				'简答题'
+			END AS typeName,
+			t1.type,
+			t1.category,
+			t1.`name`,
+			IFNULL(t1.cnt, 0) AS count
+		FROM
+			(
+			SELECT
+				t1.type,
+				t1.category,
+				t2.`name` name,
+				count(DISTINCT t1.id)  cnt
+			FROM
+				edu_question t1 LEFT JOIN jyq_category t2 on t1.category = t2.id
+				LEFT JOIN edu_question_city t3 on t1.id = t3.question_id
+				<where>
+					t1.`status` = 1
+					<if test="ids != null and ids.size()>0">
+						and t3.city_id in
+						<foreach collection="ids" item="item" open="(" close=")" separator=",">
+		            		#{item}
+		        		</foreach>
+					</if>
+				</where>
+			
+			GROUP BY
+				t1.type,t1.category
+		) t1
+	</select>
+	
+	<select id="queryRecovery" resultType="QuestionVo">
+		SELECT
+			DISTINCT t1.*, 
+			t2.`name` categoryName,
+			t3.`name` typeName,
+			t4.user_name adminName,
+			t5.user_name approveName,
+			CASE t1.`status`
+			WHEN 1 THEN
+				'通过'
+			WHEN 2 THEN
+				'待审核'
+			WHEN 3 THEN
+				'驳回'
+			END AS statuName
+		FROM
+			`edu_question` t1
+		LEFT JOIN jyq_category t2 ON t1.category = t2.id
+		LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value`
+		AND t3.type = 'subject'
+		LEFT JOIN jyq_admin t4 ON t1.admin_id = t4.id
+		LEFT JOIN jyq_admin t5 ON t1.approve_user = t5.id
+		LEFT JOIN edu_question_city t6 on t1.id = t6.question_id
+		<where>
+			<if test="ids !=null and ids.size()>0">
+				and t1.id in
+			<foreach collection="ids" item="item" open="(" close=")" separator=",">
+            	#{item}
+        	</foreach>
+			</if>
+			<if test="cityId !=null and cityId != '0'.toString()">
+				and t6.city_id  in
+				<foreach collection="cityIds" item="item" open="(" close=")" separator=",">
+	            	#{item}
+	        	</foreach>
+			</if>
+			<if test="type != null and type != '0'.toString()">
+				and t1.type = #{type}
+			</if>
+			<if test="category != null and category != '0'.toString()">
+				and t1.category = #{category}			
+			</if>
+			<if test="searchKey != null and searchKey != ''">
+				and (t4.user_name like CONCAT('%',#{searchKey},'%') or t5.user_name like CONCAT('%',#{searchKey},'%'))
+			</if>
+			<if test="code != null and code != '0'.toString()">
+				and t1.code = #{code}	
+			</if>
+			<if test="companyId != null and companyId != '0'.toString()">
+				and t1.company_id = #{companyId}
+			</if>
+			<if test="state !=null">
+				and t6.state = #{state}
+			</if>
+		</where>
+		order by t1.create_time desc
+	</select>
+	
+	<select id="queryQuestions" resultType="int">
+		SELECT t1.id FROM edu_question t1 WHERE t1.type = #{type} AND t1.category = #{category} LIMIT #{limit}
+	</select>
+	
+	<select id="queryQuestionInfo" resultType="TestPaperSubject">
+		SELECT id,category AS category_id,type AS subject_id,COUNT(*) AS num FROM edu_question WHERE id IN
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+                #{item}       
+        </foreach>
+        GROUP BY category,type
+	</select>
+</mapper>
+

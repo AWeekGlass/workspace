@@ -1,0 +1,103 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: gateway
+  main:
+    banner-mode: 'OFF'
+  cloud:
+    gateway:
+      routes:
+      - id: auth-center
+        uri: lb://auth-center
+        order: 1000
+        predicates:
+        - Path=/v1/auth-api/**
+        filters:
+        - StripPrefix=2
+      - id: system-center
+        uri: lb://system-center
+        order: 1001
+        predicates:
+        - Path=/v1/system-api/**
+        filters:
+        - StripPrefix=2
+      - id: user-center
+        uri: lb://user-center
+        order: 1002
+        predicates:
+        - Path=/v1/user-api/**
+        filters:
+        - StripPrefix=2
+      - id: contract-center
+        uri: lb://contract-center
+        order: 1003
+        predicates:
+        - Path=/v1/contract-api/**
+        filters:
+        - StripPrefix=2
+      - id: report-center
+        uri: lb://report-center
+        order: 1004
+        predicates:
+        - Path=/v1/report-api/**
+        filters:
+        - StripPrefix=2
+      - id: exam-center
+        uri: lb://exam-center
+        order: 1005
+        predicates:
+        - Path=/v1/exam-api/**
+        filters:
+        - StripPrefix=2
+      - id: training-center
+        uri: lb://training-center
+        order: 1006
+        predicates:
+        - Path=/v1/training-api/**
+        filters:
+        - StripPrefix=2
+      - id: case-center
+        uri: lb://case-center
+        order: 1007
+        predicates:
+        - Path=/v1/case-api/**
+        filters:
+        - StripPrefix=2
+      - id: data-center
+        uri: lb://data-center
+        order: 1008
+        predicates:
+        - Path=/v1/data-api/**
+        filters:
+        - StripPrefix=2
+  redis:
+    host: 127.0.0.1
+    port: 6380
+    password: 123456
+    jedis:
+      pool:
+        max-active: 64
+        max-idle: 20
+        min-idle: 2
+        max-wait: 2000
+        
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8765/eureka/
+      
+jwt:
+  expire: 14400 #单位（秒）
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key
+            
+gate:
+  ignore:
+    startWith: /auth/login,/address/province,/smsVerify/sendCode,/admin/registe,/trainingExperience/uploadIMG

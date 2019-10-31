@@ -1,0 +1,16 @@
+package com.hengyu.system.service;
+
+import com.hengyu.system.entity.Proxy;
+import com.baomidou.mybatisplus.service.IService;
+
+/**
+ * <p>
+ * 委托书 服务类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-03
+ */
+public interface ProxyService extends IService<Proxy> {
+
+}

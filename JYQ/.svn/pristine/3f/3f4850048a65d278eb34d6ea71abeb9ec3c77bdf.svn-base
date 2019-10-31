@@ -1,0 +1,33 @@
+package com.hengyu.cases.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hengyu.cases.dao.CategoryDAO;
+import com.hengyu.cases.entity.Category;
+import com.hengyu.cases.service.CategoryService;
+import com.hengyu.cases.vo.CategoryVo;
+
+/**
+ * <p>
+ * 	案例分类Impl实现类
+ * </p>
+ * @author hongyuan
+ * @since  2018年9月6日
+ * @version 	
+ *
+ */
+@Service
+public class CategoryServiceImpl extends ServiceImpl<CategoryDAO, Category> implements CategoryService{
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
+	@Override
+	public List<CategoryVo> queryAllByCompanyId(Integer companyId) {
+		return categoryDAO.queryAllByCompanyId(companyId);
+	}
+	
+}

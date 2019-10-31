@@ -1,0 +1,56 @@
+package com.hengyu.cases.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**<p>
+ * 	案例分类表
+ * </p>
+ * @author hongyuan
+ * @since  2018年9月3日
+ * @version 	
+ *
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("jyq_category")
+public class Category extends Model<Category>{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@TableId(value="id",type=IdType.AUTO)
+	private Integer id;
+	
+	/**
+	 * 分类名称
+	 */
+	private String name;
+	
+	/**
+	 * 公司ID
+	 */
+	private Integer companyId;
+
+	/**
+	 * 创建时间
+	 */
+	@TableField(fill = FieldFill.INSERT)
+	private Date createTime;
+	
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+}

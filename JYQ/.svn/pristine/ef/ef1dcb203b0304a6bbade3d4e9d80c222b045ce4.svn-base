@@ -1,0 +1,27 @@
+package com.hengyu.cases.dao;
+
+import com.hengyu.cases.entity.Like;
+import com.hengyu.cases.vo.LikeInfoVo;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+/**
+ * <p>
+ * Mapper 接口
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+public interface LikeDAO extends BaseMapper<Like> {
+	/**
+	 * 查看案例点赞信息
+	 */
+	List<LikeInfoVo> queryLikeInfoById(@Param("id") Integer id);
+
+	void deleteByCaseId(@Param("userId") Integer userId,@Param("caseId")  Integer caseId);
+}

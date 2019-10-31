@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.contract.dao.ApprovalRecordDAO">
+	<select id="getList" resultType="ApprovalRecord">
+		SELECT
+			t1.id,
+			t1.approval_id,
+			t1.operator,
+			t1.`status` , 
+			CASE t1.`status`
+			WHEN 1 THEN
+				'通过'
+			WHEN 2 THEN
+				'未通过'
+			ELSE
+				'未知'
+			END AS sname,
+			t1.remark,
+			t1.create_time,
+			t1.company_id,
+			t2.user_name
+		FROM
+			`jyq_approval_record` t1
+		LEFT JOIN jyq_admin t2 ON t1.operator = t2.id
+		<where>
+			t1.approval_id = #{approvalId}
+		</where>
+	</select>
+</mapper>

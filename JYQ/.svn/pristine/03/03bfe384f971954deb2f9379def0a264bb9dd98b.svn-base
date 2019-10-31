@@ -1,0 +1,36 @@
+package com.hengyu.cases.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hengyu.cases.dao.QuestionDAO;
+import com.hengyu.cases.entity.Question;
+import com.hengyu.cases.service.QuestionService;
+import com.hengyu.cases.vo.QuestionVo;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-14
+ */
+@Service
+public class QuestionServiceImpl extends ServiceImpl<QuestionDAO, Question> implements QuestionService {
+	@Autowired
+	private QuestionDAO questionDAO;
+	
+	@Override
+	public Page<QuestionVo> queryAll(Page<QuestionVo> page, Integer companyId, Integer userId) {
+		return page.setRecords(questionDAO.queryAll(companyId, userId));
+	}
+
+	@Override
+	public QuestionVo queryDetailById(Integer id) {
+		return questionDAO.queryDetailById(id);
+	}
+
+}

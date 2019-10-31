@@ -1,0 +1,183 @@
+package com.hengyu.user.service.impl;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hengyu.common.jwt.JWTInfo;
+import com.hengyu.common.util.EncryptionUtil;
+import com.hengyu.common.util.JWTUtils;
+import com.hengyu.user.dao.AdminDAO;
+import com.hengyu.user.dao.ChangePhoneDAO;
+import com.hengyu.user.dao.SmsVerifyDAO;
+import com.hengyu.user.entity.Admin;
+import com.hengyu.user.entity.ChangePhone;
+import com.hengyu.user.entity.SmsVerify;
+import com.hengyu.user.po.ChangePhonePo;
+import com.hengyu.user.service.AdminService;
+import com.hengyu.user.vo.AdminFullVo;
+import com.hengyu.user.vo.AdminMiddleVo;
+import com.hengyu.user.vo.AdminShortVo;
+import com.hengyu.user.vo.AdminSmallVo;
+import com.hengyu.user.vo.AdminVo;
+import com.hengyu.user.vo.MyInfoVo;
+
+/**
+ * <p>
+ * 中介用户表 服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-22
+ */
+@Service
+public class AdminServiceImpl extends ServiceImpl<AdminDAO, Admin> implements AdminService {
+	@Autowired
+	private AdminDAO adminDAO;
+
+	@Autowired
+	private JWTUtils jwtUtil;
+	
+	@Autowired
+	private SmsVerifyDAO smsVerifyDAO;
+	
+	@Autowired
+	private ChangePhoneDAO changePhoneDAO;
+
+	@Override
+	public Page<AdminMiddleVo> queryList(Page<AdminMiddleVo> page, Map<String, Object> parameterMap) {
+		return page.setRecords(adminDAO.queryList(page, parameterMap));
+	}
+
+	@Override
+	public String login(String phone, String password) throws Exception {
+		AdminShortVo adminShortVo = adminDAO.login(phone, EncryptionUtil.getSHA256StrJava(password));
+		if (Objects.nonNull(adminShortVo)) {
+			JWTInfo jwtInfo = new JWTInfo();
+			jwtInfo.setId(adminShortVo.getId());
+			jwtInfo.setUserName(adminShortVo.getUserName());
+			jwtInfo.setCompanyId(adminShortVo.getCompanyId());
+			jwtInfo.setCompanyName(adminShortVo.getCompanyName());
+			return jwtUtil.generateToken(jwtInfo);
+		}
+		return "";
+	}
+
+	@Override
+	public AdminVo queryDetailById(Integer id) {
+		return adminDAO.queryDetailById(id);
+	}
+
+	@Override
+	public Integer queryCntByStoreId(Integer storeId) {
+		return adminDAO.queryCntByStoreId(storeId);
+	}
+
+	@Override
+	public boolean updateDelFlag(List<String> ids) {
+		List<Admin> list = ids.stream().map(id -> {
+			Admin admin = new Admin();
+			admin.setId(Integer.parseInt(id));
+			admin.setDelFlag(1);
+			return admin;
+		}).collect(Collectors.toList());
+		return updateBatchById(list);
+	}
+
+	@Override
+	public Boolean checkPwd(Integer adminId, String password) {
+		return adminDAO.checkPwd(adminId, password);
+	}
+
+	@Override
+	public AdminFullVo queryResumeById(Integer id) {
+		return adminDAO.queryResumeById(id);
+	}
+
+	@Override
+	public List<AdminSmallVo> queryByUserName(Integer companyId, String userName) {
+		return adminDAO.queryByUserName(companyId, userName);
+	}
+
+	@Override
+	public Integer checkPhone(String phone) {
+		return adminDAO.checkPhone(phone);
+	}
+
+	@Override
+	public String registe(Admin admin) {
+		//验证两次密码是否一直
+		if(!Objects.equals(admin.getPassword(), admin.getRePassword())){
+			return "两次密码不一致!";
+		}
+		//校验验证码
+		SmsVerify smsVerify = new SmsVerify();
+		smsVerify.setType(1);
+		smsVerify.setPhone(admin.getTelephone());
+		smsVerify.setValidLastTime(new Date());
+		smsVerify = smsVerifyDAO.verifySmsCode(smsVerify);
+		if (Objects.nonNull(smsVerify) && Objects.equals(smsVerify.getSmsCode(), admin.getCode())) {
+			smsVerify.setIsValid(0);
+			smsVerifyDAO.updateById(smsVerify);
+			//如果没有推荐人，则设置推荐为null
+			if(Objects.equals("0", admin.getInviterPhone())){
+				admin.setInviterPhone(null);
+			}
+			//密码加密
+			admin.setPassword(EncryptionUtil.getSHA256StrJava(admin.getPassword()));
+			boolean flag = insert(admin);
+			if(flag){
+				return "注册成功!";
+			}else {
+				return "注册失败!";
+			}
+			
+		} else {
+			return "验证码不正确";
+		}
+	}
+
+	@Override
+	public String changePhone(ChangePhonePo changePhonePo) {
+		//查询手机验证码
+		SmsVerify smsVerify = new SmsVerify();
+		smsVerify.setType(1);
+		smsVerify.setPhone(changePhonePo.getNewPhone());
+		smsVerify.setValidLastTime(new Date());
+		smsVerify = smsVerifyDAO.verifySmsCode(smsVerify);
+		if(Objects.isNull(smsVerify) || !Objects.equals(smsVerify.getSmsCode(), changePhonePo.getCode())){
+			return "验证码不正确";
+		}
+		Admin admin = selectById(changePhonePo.getUserId());
+		if(Objects.isNull(admin) || !Objects.equals(changePhonePo.getOldPhone(), admin.getTelephone())){
+			return "原手机号输入错误";
+		}
+		admin.setTelephone(changePhonePo.getNewPhone());
+		boolean falg = updateById(admin);
+		if(falg){
+			//新增更换手机号记录
+			ChangePhone changePhone = new ChangePhone();
+			changePhone.setOldPhone(changePhonePo.getOldPhone());
+			changePhone.setNewPhone(changePhonePo.getNewPhone());
+			changePhone.setUserId(changePhonePo.getUserId());
+			changePhoneDAO.insert(changePhone);
+			return "提交成功";
+			
+		}else {
+			return "更换失败";
+		}
+	}
+
+	@Override
+	public MyInfoVo queryMyInfo(Integer userId) {
+		return adminDAO.queryMyInfo(userId);
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.cases.dao.CommentDAO">
+	<select id="querycommentInfoById" resultType="CommentInfoVo">
+		select a.username
+		userName,b.replyname replyName,c.content,c.create_time createTime from
+		jyq_comment c
+		left join
+		(select a.user_name as username,a.id as aid From jyq_admin a ) a
+		on a.aid = c.admin_id
+		left join
+		(select a.user_name as replyname,a.id as aid From jyq_admin a ) b
+		on b.aid = c.reply_admin_id
+		where c.case_id = #{caseId}
+		order by c.create_time asc
+	</select>
+</mapper>

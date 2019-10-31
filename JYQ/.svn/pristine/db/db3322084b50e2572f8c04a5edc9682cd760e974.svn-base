@@ -1,0 +1,51 @@
+package com.hengyu.cases.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hengyu.cases.dao.CaseDAO;
+import com.hengyu.cases.entity.Case;
+import com.hengyu.cases.service.CaseService;
+import com.hengyu.cases.vo.CaseInfoVo;
+
+/**
+ * <p>
+ * 中介案例表 服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+@Service
+public class CaseServiceImpl extends ServiceImpl<CaseDAO, Case> implements CaseService {
+	@Autowired
+	CaseDAO caseDao;
+
+	@Override
+	public CaseInfoVo queryCaseById(Integer id) {
+		return caseDao.queryCaseById(id);
+	}
+
+	@Override
+	public List<CaseInfoVo> queryAllByCategoryId(Integer companyId, Integer categoryId) {
+		return caseDao.queryAllByCategoryId(companyId, categoryId);
+	}
+
+	@Override
+	public List<CaseInfoVo> queryDraft(Integer companyId) {
+		return caseDao.queryDraft(companyId);
+	}
+
+	@Override
+	public void updateTop(Integer id) {
+		caseDao.updateTop(id);
+	}
+
+	@Override
+	public void updateRef(Integer userId, Integer id) {
+		caseDao.updateRef(userId, id);
+	}
+}

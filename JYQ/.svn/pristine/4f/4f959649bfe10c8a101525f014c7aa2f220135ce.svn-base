@@ -1,0 +1,60 @@
+package com.hengyu.system.service.impl;
+
+import com.hengyu.system.entity.Order;
+import com.hengyu.system.dao.OrderDAO;
+import com.hengyu.system.service.OrderService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 订单表 服务实现类
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-05
+ */
+@Service
+public class OrderServiceImpl extends ServiceImpl<OrderDAO, Order> implements OrderService {
+
+	@Autowired
+	private OrderDAO orderDAO;
+	
+	@Override
+	public String createOrder(Order order) {
+		order.setOrderCode(randomOrderNum());
+		boolean flag = insert(order);
+		if(flag){
+			return "创建成功";
+		}
+		return "创建失败";
+	}
+	
+	/**
+	 * 生成订单号
+	 * @return
+	 */
+	private String randomOrderNum(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+		return date.toString();
+	}
+
+	@Override
+	public Order queryDetaile(Order order) {
+		List<Order> list = selectList(new EntityWrapper<Order>(order));
+		if(Objects.nonNull(list) && Objects.nonNull(list.get(0))){
+			return list.get(0);
+		}
+		return null;
+	}
+
+}

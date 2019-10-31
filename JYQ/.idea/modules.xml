@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JYQ.iml" filepath="$PROJECT_DIR$/JYQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-center/auth-center.iml" filepath="$PROJECT_DIR$/auth-center/auth-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/case-center/case-center.iml" filepath="$PROJECT_DIR$/case-center/case-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/contract-center/contract-center.iml" filepath="$PROJECT_DIR$/contract-center/contract-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data-center/data-center.iml" filepath="$PROJECT_DIR$/data-center/data-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exam-center/exam-center.iml" filepath="$PROJECT_DIR$/exam-center/exam-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interview-center/interview-center.iml" filepath="$PROJECT_DIR$/interview-center/interview-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/log-service/log-service.iml" filepath="$PROJECT_DIR$/log-service/log-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/report-center/report-center.iml" filepath="$PROJECT_DIR$/report-center/report-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-center/system-center.iml" filepath="$PROJECT_DIR$/system-center/system-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/training-center/training-center.iml" filepath="$PROJECT_DIR$/training-center/training-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-center/user-center.iml" filepath="$PROJECT_DIR$/user-center/user-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-common/web-common.iml" filepath="$PROJECT_DIR$/web-common/web-common.iml" />
+    </modules>
+  </component>
+</project>

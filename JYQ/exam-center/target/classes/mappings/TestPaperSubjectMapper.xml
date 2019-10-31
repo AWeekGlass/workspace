@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.exam.dao.TestPaperSubjectDAO">
+	<resultMap type="ExamNumVo" id="examNumMap">
+		<result property="category" column="category"/>
+		<collection property="num" ofType="NumVo">
+			<result property="subjectId" column="subject_id"/>
+			<result property="num" column="num"/>
+		</collection>
+	</resultMap>
+	
+	<select id="queryNumByPaperId" resultMap="examNumMap">		
+		SELECT t1.category,t2.subject_id,IFNULL(t3.num,'') AS num FROM(
+				SELECT t1.category FROM edu_question t1 GROUP BY t1.category)t1 CROSS JOIN(
+				SELECT 1 AS subject_id UNION ALL SELECT 2 UNION ALL SELECT	3 UNION ALL SELECT 4 UNION ALL SELECT 5
+			)t2 LEFT JOIN (
+				SELECT t1.category_id,t2.`value` AS subject_id,t1.num
+					FROM edu_test_paper_subject t1 LEFT JOIN sys_dictionary t2 ON t1.subject_id = t2.id 
+						WHERE t1.paper_id = #{paperId} ORDER BY t1.category_id,t1.subject_id)t3 
+						ON t1.category = t3.category_id AND t2.subject_id  = t3.subject_id
+					LEFT JOIN (SELECT t1.category_id,COUNT(*) AS cnt FROM edu_test_paper_subject t1
+						WHERE t1.paper_id = #{paperId} GROUP BY t1.category_id)t4 ON t1.category = t4.category_id WHERE t4.cnt > 0
+	</select>
+	
+	<select id="queryScoreByPaperId" resultType="string">
+		SELECT IFNULL(t2.score,'') AS score FROM(SELECT id FROM sys_dictionary WHERE type = 'subject')t1 LEFT JOIN 
+			(SELECT t1.subject_id,t1.score 
+				FROM edu_test_paper_subject t1 WHERE t1.paper_id = #{paperId} GROUP BY subject_id)t2 ON t1.id = t2.subject_id
+	</select>
+	
+	<select id="queryPaperSubject" resultType="TypeVo">
+		SELECT
+			COUNT(*),
+			score,
+			CASE subject_id
+		WHEN 91 THEN
+			1
+		WHEN 92 THEN
+			2
+		WHEN 93 THEN
+			3
+		WHEN 94 THEN
+			4
+		WHEN 95 THEN
+			5
+		END AS type
+		FROM
+			edu_test_paper_subject
+		where paper_id = #{paperId}
+		GROUP BY
+			subject_id
+	</select>
+</mapper>

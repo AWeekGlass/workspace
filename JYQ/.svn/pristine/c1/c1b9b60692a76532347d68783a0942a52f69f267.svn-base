@@ -1,0 +1,36 @@
+package com.hengyu.cases.service;
+
+import com.hengyu.cases.entity.Case;
+
+import com.hengyu.cases.vo.CaseInfoVo;
+import com.hengyu.common.msg.RestResponse;
+
+import java.util.List;
+import java.util.Map;
+
+import com.baomidou.mybatisplus.service.IService;
+
+/**
+ * 
+ * -
+ * <p>
+ * - 中介案例表 服务类 -
+ * </p>
+ *
+ * - @author allnas - @since 2018-08-28
+ */
+public interface CaseService extends IService<Case> {
+	
+	/**
+	 * 根据案例类型查看列表
+	 * @param category
+	 * @return
+	 */
+	List<CaseInfoVo> queryCaseInfoByCate(Map<String, Object> map);
+	
+	/**
+	 * - 根据ID查询案例信息 - @param id - @return
+	 */
+	CaseInfoVo queryCaseInfoById(Integer caseId);
+
+}

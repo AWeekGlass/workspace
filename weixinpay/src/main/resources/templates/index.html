@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>hello weixin pay</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/weixinpay.js}"></script>
+<script type="text/javascript">
+$(function(){
+    $("#weixinpay").click(function(){
+    	pay("订单号");
+    });
+ });
+</script>
+<button id="weixinpay">微信支付</button>
+</body>
+
+</html>

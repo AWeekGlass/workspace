@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="1012" key="DIALOG_X_ORIGIN"/>
+		<item value="542" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="getOauth2AccessToken" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="getOauth2AccessToken"/>
+			<item value="gappid"/>
+			<item value="access_token_url"/>
+			<item value="queryRootTree"/>
+			<item value="queryTree"/>
+			<item value="approvalJoinCompany"/>
+			<item value="configureMessageConverters "/>
+			<item value="fast"/>
+			<item value="postHandle"/>
+			<item value="queryAllByCategoryId"/>
+			<item value="queryAll"/>
+			<item value="queryMessagelist"/>
+			<item value="getAnswers"/>
+			<item value="questionMap"/>
+			<item value="like"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="356" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="980" key="DIALOG_X_ORIGIN"/>
+		<item value="488" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

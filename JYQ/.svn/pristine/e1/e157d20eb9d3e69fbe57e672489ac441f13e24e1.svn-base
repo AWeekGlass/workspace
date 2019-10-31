@@ -1,0 +1,54 @@
+package com.hengyu.system.entity;
+
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotations.Version;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 委托书
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-03
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("sys_proxy")
+public class Proxy extends Model<Proxy> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+    /**
+     * 公司id
+     */
+    @TableField("company_id")
+    private Integer companyId;
+    /**
+     * 委托书
+     */
+    private String proxy;
+    /**
+     * 状态 0 未通过审核 1 通过审核
+     */
+    private Integer state;
+
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+}

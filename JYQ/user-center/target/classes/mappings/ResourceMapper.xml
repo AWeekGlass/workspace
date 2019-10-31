@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.user.dao.ResourceDAO">
+	<resultMap type="ResourceVo" id="ResourceMapper">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="url" property="url"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="category_id" property="categoryId"/>
+		<collection property="organizationList" ofType="OrganizationVo">
+			<result column="org_id" property="id"/>
+			<result column="org_name" property="name"/>
+		</collection>
+	</resultMap>
+	
+	<select id="queryAllPermission" resultMap="ResourceMapper">
+		SELECT t3.id,t3.`name`,t3.url,t3.parent_id,t3.category_id,t5.id AS org_id,t5.`name` AS org_name FROM sys_resource t3
+			LEFT JOIN sys_resource_category t4 ON t3.category_id = t4.id
+			LEFT JOIN sys_organization t5 ON t3.id = t5.resource_id
+		ORDER BY t3.id,t3.sort,t5.sort
+	</select>
+	
+	<select id="queryPermissionByAdminId" resultType="string">
+		SELECT t4.url FROM jyq_admin t1 
+			LEFT JOIN sys_role t2 ON t1.role_id = t2.id
+			LEFT JOIN sys_role_permission t3 ON t2.id = t3.role_id
+			LEFT JOIN sys_resource t4 ON t3.resource_id = t4.id
+		WHERE t1.id = #{adminId}
+	</select>
+	
+	<select id="queryRootTree" resultType="ResourceTreeVo">
+		SELECT t1.id,t1.`name`,t1.category_id AS module_id,t2.`name` AS module_name FROM sys_resource t1 
+			LEFT JOIN sys_resource_category t2 ON t1.category_id = t2.id WHERE t1.category_id = #{categoryId} AND t1.parent_id IS NULL
+	</select>
+	
+	<select id="queryTreeByParentId" resultType="ResourceTreeVo">
+		SELECT id,`name` FROM sys_resource WHERE category_id = #{categoryId} AND parent_id = #{parentId}
+	</select>
+</mapper>

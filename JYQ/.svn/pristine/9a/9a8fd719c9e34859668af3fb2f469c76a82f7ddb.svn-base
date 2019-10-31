@@ -1,0 +1,94 @@
+server:
+  port: 8700
+
+spring:
+  profiles: prod
+  redis:
+    host: 127.0.0.1
+    port: 6380
+    password: 123456
+    jedis:
+      pool:
+        max-active: 64
+        max-idle: 20
+        min-idle: 2
+        max-wait: 2000
+  datasource:
+    druid:
+      url: jdbc:mysql://47.97.185.156:3306/jyq_prod?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useLocalSessionState=true
+      driver-class-name: org.gjt.mm.mysql.Driver
+      username: root
+      password: SAok123
+      max-active: 64
+      validation-query: SELECT 'x'
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    banner-mode: 'OFF'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+      
+mybatis-plus:
+  mapper-locations: classpath:mappings/*.xml
+  type-aliases-package: com.hengyu.log.entity,com.hengyu.training.entity,com.hengyu.training.vo
+  global-config:
+    id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    field-strategy: 1 #字段策略   0:忽略判断  1:非 NULL 判断  2:非空判断
+    db-column-underline: true
+    refresh-mapper: true
+    meta-object-handler: com.hengyu.common.handler.SystemMetaObjectHandler
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+        
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:8765/eureka/
+   
+jwt:
+  expire: 14400 #单位（秒）
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key
+     
+feign:
+  hystrix:
+    enabled: true
+
+training:
+  upload-img-path: training/img/
+  upload-file-path: training/file/
+
+file.path: http://172.16.52.41:90/
+ 
+ftp:
+  address: 172.16.52.41
+  password: ABCabc123456
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000 ##并发执行的最大线程数，默认10
+      maxQueueSize: 1000 ##BlockingQueue的最大队列数
+      queueSizeRejectionThreshold: 500 ##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+  command:
+    default: 
+      execution:
+        timeout:
+          enabled: true
+          isolation: 
+            thread:
+              timeoutInMilliseconds: 6000

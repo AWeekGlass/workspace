@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.cases.dao.QuestionDAO">
+	<resultMap type="QuestionVo" id="questionMap">
+		<id column="id" property="id"/>
+		<result column="content" property="content"/>
+		<result column="end_time" property="endTime"/>
+		<collection property="answerList" ofType="AnswerVo" select="com.hengyu.cases.dao.AnswerDAO.getAnswers" column="{id = id,adminId = admin_id}"/>
+	</resultMap>
+	
+	<select id="queryAll" resultMap="questionMap">
+		SELECT id,content,end_time,admin_id FROM jyq_question t1
+		<where>
+			<if test="userId != null and userId != ''">
+				AND t1.admin_id = #{userId}
+			</if>
+			<if test="companyId != null and companyId != ''">
+				AND t1.company_id = #{companyId}
+			</if>
+		</where>
+	</select>
+	
+	<select id="queryDetailById" resultMap="questionMap">
+		SELECT id,content,end_time,admin_id FROM jyq_question t1 WHERE t1.id = #{id}
+	</select>
+</mapper>

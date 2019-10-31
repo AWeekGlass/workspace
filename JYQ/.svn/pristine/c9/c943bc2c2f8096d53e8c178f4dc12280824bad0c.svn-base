@@ -1,0 +1,54 @@
+package com.hengyu.cases.web;
+
+import static com.hengyu.common.constant.CommonConstants.ADD_FAILURE;
+import static com.hengyu.common.constant.CommonConstants.ADD_SUCCESS;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.hengyu.cases.entity.Comment;
+import com.hengyu.cases.service.CommentService;
+import com.hengyu.cases.vo.CommentInfoVo;
+import com.hengyu.common.msg.RestResponse;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+
+/**
+ * <p>
+ * 前端控制器
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+@Api(value = "CommentController", tags = "回复Controller")
+@Controller
+@RequestMapping("/comment")
+public class CommentController {
+
+	@Autowired
+	private CommentService commentService;
+
+	@ApiOperation(value = "查看回复信息", notes = "获取回复信息")
+	@ApiImplicitParam(name = "id", value = "案例ID", required = true, dataTypeClass = Integer.class)
+	@GetMapping("info")
+	public RestResponse<List<CommentInfoVo>> info(Integer id) throws Exception {
+		return new RestResponse<List<CommentInfoVo>>().rel(true).data(commentService.queryCommentInfoByCaseId(id));
+	}
+
+	@ApiOperation(value = "新增评论", notes = "新增评论")
+	@ApiImplicitParam(name = "Comment", value = "评论对象", dataTypeClass = Comment.class)
+	@PostMapping("add")
+	public RestResponse<String> add(Comment comment) throws Exception {
+		boolean flag = commentService.insert(comment);
+		RestResponse<String> response = new RestResponse<String>().rel(flag);
+		return flag ? response.data(ADD_SUCCESS) : response.message(ADD_FAILURE);
+	}
+}

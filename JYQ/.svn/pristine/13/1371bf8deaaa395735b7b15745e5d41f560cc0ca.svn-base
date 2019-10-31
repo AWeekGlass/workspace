@@ -1,0 +1,104 @@
+package com.hengyu.training.service.impl;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.hengyu.training.dao.TrainingExperienceDAO;
+import com.hengyu.training.entity.TrainComment;
+import com.hengyu.training.entity.TrainingExperience;
+import com.hengyu.training.entity.TrainingLike;
+import com.hengyu.training.service.TrainCommentService;
+import com.hengyu.training.service.TrainingExperienceService;
+import com.hengyu.training.service.TrainingLikeService;
+
+/**
+ * 培训心得 服务实现类
+ *
+ * @author allnas
+ * @since 2018-12-13
+ */
+@Service
+public class TrainingExperienceServiceImpl extends ServiceImpl<TrainingExperienceDAO, TrainingExperience> implements TrainingExperienceService {
+
+	@Autowired
+	private TrainingExperienceDAO tranExpDAO;
+	
+	@Autowired
+	private TrainingLikeService traLikeService;
+	
+	@Autowired
+	private TrainCommentService commentService;
+
+	@Override
+	public Page<TrainingExperience> queryAllByCategoryId(Page<TrainingExperience> page,TrainingExperience trainingExperience) {
+		Integer userId = trainingExperience.getUserId();
+		if(Objects.equals(trainingExperience.getType(), 1)){
+			trainingExperience.setUserId(null);
+		}
+		List<TrainingExperience> list = tranExpDAO.queryAllByCategoryId(page,trainingExperience);
+		for (TrainingExperience trainingExp : list) {
+			//查询点赞人数
+			Integer count = traLikeService.selectCount(new EntityWrapper<TrainingLike>().eq("training_exp_id", trainingExp.getId()));
+			trainingExp.setLike(count);
+			//查询本人是否点赞
+			Integer num = traLikeService.selectCount(new EntityWrapper<TrainingLike>().eq("training_exp_id", trainingExp.getId()).eq("user_id", userId));
+			if(num==0){
+				trainingExp.setIsLike(0);
+			}else{
+				trainingExp.setIsLike(1);
+			}
+			//评论数量
+			Integer comment = commentService.selectCount(new EntityWrapper<TrainComment>().eq("training_exp_id", trainingExp.getId()));
+			trainingExp.setCommentNum(comment);
+		}
+		return page.setRecords(list);
+	}
+
+	@Override
+	public List<TrainingExperience> queryDraft(Integer companyId) {
+		return tranExpDAO.queryDraft(companyId);
+	}
+
+	@Override
+	public TrainingExperience detail(Integer id,Integer userId) {
+		
+		TrainingExperience trainingExp = tranExpDAO.detail(id);
+		
+		Integer count = traLikeService.selectCount(new EntityWrapper<TrainingLike>().eq("training_exp_id", trainingExp.getId()));
+		trainingExp.setLike(count);
+		Integer num = traLikeService.selectCount(new EntityWrapper<TrainingLike>().eq("training_exp_id", trainingExp.getId()).eq("user_id", userId));
+		if(num==0){
+			trainingExp.setIsLike(0);
+		}else{
+			trainingExp.setIsLike(1);
+		}
+/*		if(Objects.nonNull(trainingExp.getStoreId())){
+			StoreVo storeVo = tranExpDAO.getStoreName(trainingExp.getStoreId());
+		}*/
+		return trainingExp;
+	}
+
+	@Override
+	public boolean delete(String id) {
+		boolean flag = false;
+		List<String> ids = Arrays.asList(id.split(","));
+		for (String id_ : ids) {
+			TrainingExperience trainingExp = new TrainingExperience();
+			trainingExp.setId(Integer.valueOf(id_));
+			trainingExp.setDelFlag(0);
+			flag = updateById(trainingExp);
+			if(!flag){
+				return flag;
+			}
+		}
+		return flag;
+	}
+
+}

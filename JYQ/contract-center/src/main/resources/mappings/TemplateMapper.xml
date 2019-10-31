@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.contract.dao.TemplateDAO">
+
+	<select id="queryList" resultType="Template">
+		SELECT
+			t1.id,
+			t1.NAME,
+			t1.province_id,
+			t1.city_id,
+			t1.area_id,
+			t1.address,
+			t1.del_flag,
+			t1.company_id,
+			t1.type,
+			t1.industry_id,
+			t2.name industryName,
+			t3.`name` typeName,
+			t4.`name` cityName
+		FROM
+			jyq_template t1
+		LEFT JOIN jyq_industry t2 on t1.industry_id = t2.id
+		LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value` and t3.type = 'contractType'
+		LEFT JOIN jyq_store t4 ON t1.city_id = t4.id and t4.`type` = 3
+		<where>
+			1=1
+			<if test="name !=null and name !=''">
+				and t1.name like CONCAT('%',#{name},'%') 
+			</if>
+			<if test="address !=null and address !=''">
+				and t1.address = #{address}
+			</if>
+			<if test="companyId !=null and companyId !=''">
+				and t1.company_id = #{companyId}
+			</if>
+			<if test="type !=null and type !=''">
+				and t1.type = #{type}
+			</if>
+			<if test="industryId !=null and industryId !=''">
+				and t1.industry_id = #{industryId}
+			</if>
+			<if test="areaId != null">
+				and t1.area_id = #{areaId}
+			</if>
+			<if test="provinceId != null">
+				and t1.province_id = #{provinceId}
+			</if>
+			<if test="cityId != null">
+				and t1.city_id =#{cityId}
+			</if>
+				and t1.del_flag = 0
+				and t1.system_data != 0
+		</where>
+		order by t1.id desc
+	</select>
+	
+	<select id="queryById" resultType="Template">
+		SELECT
+			t1.id,
+			t1.NAME,
+			t1.province_id,
+			t1.city_id,
+			t1.area_id,
+			t1.address,
+			t1.del_flag,
+			t1.company_id,
+			t1.type,
+			t1.industry_id,
+			t2.name industryName,
+			t3.`name` typeName,
+			t4.`name` cityName
+		FROM
+			jyq_template t1
+		LEFT JOIN jyq_industry t2 on t1.industry_id = t2.id
+		LEFT JOIN sys_dictionary t3 ON t1.type = t3.`value` and t3.type = 'contractType'
+		LEFT JOIN sys_address t4 on t1.city_id = t4.id 
+		<where>
+			t1.id=#{id}
+		</where>
+	</select>
+	
+	<select id="queryAreaId" resultType="int">
+		SELECT
+			area_id
+		FROM
+			jyq_company
+		WHERE
+			id = #{id};
+	</select>
+	
+	<select id="querySysTempate" resultType="Template">
+		SELECT
+			address,
+			id
+		FROM
+			jyq_template
+		where 
+			system_data = 0
+		and type = #{type}
+		and company_id = #{companyId}
+	</select>
+</mapper>

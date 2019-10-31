@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.user.dao.TransferDAO">
+	<select id="getList" resultType="Transfer">
+		SELECT
+			t1.id,
+			t1.division,
+			t1.division_old,
+			t1.position,
+			t1.position_old,
+			t1.user_id,
+			t1.create_time,
+			t1.operator,
+			t1.`data`,
+			t2.user_name operatorName,
+			t3.`name` divisionOldName,
+			t4.`name` divisionName,
+			t5.`name` positionName,
+			t6.`name` positionOldName,
+			t7.user_name userName
+		FROM
+			`jyq_transfer` t1
+		LEFT JOIN jyq_admin t2 ON t1.operator = t2.id
+		LEFT JOIN jyq_store t3 ON t1.division_old = t3.id
+		LEFT JOIN jyq_store t4 ON t1.division = t4.id
+		LEFT JOIN sys_role t5 ON t1.position = t5.id
+		LEFT JOIN sys_role t6 ON t1.position_old = t6.id
+		LEFT JOIN jyq_admin t7 on t1.user_id = t7.id
+		where user_id = #{userId}
+	</select>
+</mapper>

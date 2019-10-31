@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.training.dao.TrainingRecordDAO">
+
+	<select id="queryList"	resultType="TrainingRecord">
+		SELECT
+			t1.id,
+			t1.company_id,
+			t1.training_id,
+			t1.sign_in_status,
+			t1.admin_id,
+			t1.sign_in_status,
+			t1.feedback_status,
+			t1.feedback_content,
+			t1.create_time,
+			t2.training_start_time,
+			t2.training_end_time,
+			t2.training_name,
+			t2.introduce,
+			t3.user_name
+		FROM
+			`edu_training_record` t1
+		LEFT JOIN edu_training t2 ON t1.training_id = t2.id
+		LEFT JOIN jyq_admin t3 ON t1.admin_id = t3.id
+		<where>
+			1=1
+			<if test="companyId != null">
+				and t1.company_id = #{companyId}
+			</if>
+			<if test="trainingId != null">
+				and t1.training_id = #{trainingId}
+			</if>
+			<if test="adminId != null">
+				and t1.admin_id = #{adminId}
+			</if>
+			<if test="signInStatus != null">
+				and t1.sign_in_status = #{signInStatus}
+			</if>
+			<if test="signInTime != null and signInTime !=''">
+				and t1.sign_in_time = #{signInTime}
+			</if>
+			<if test="feedbackStatus != null">
+				and t1.feedback_status = #{feedbackStatus}
+			</if>
+			<if test="feedbackContent != null">
+				and t1.feedback_content = #{feedbackContent}
+			</if>
+			<if test="createTime != null and  createTime != ''">
+				and t1.create_time = #{createTime}
+			</if>
+		</where>
+		order by t1.sign_in_time desc
+	</select>
+</mapper>

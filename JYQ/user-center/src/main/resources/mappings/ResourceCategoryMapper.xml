@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.user.dao.ResourceCategoryDAO">
+	<select id="getAllResourceByCompanyId" resultType="ResourceCategoryVo">
+		SELECT t1.id,t1.`name` FROM sys_resource_category t1 WHERE t1.company_id = #{companyId}
+	</select>
+</mapper>

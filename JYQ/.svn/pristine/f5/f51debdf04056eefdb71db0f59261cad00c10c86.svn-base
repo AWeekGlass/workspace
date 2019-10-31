@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hengyu.system.dao.UserDiscountDAO">
+	<resultMap type="UserDiscount" id="userDiscountMap">
+		<id property="id" column="id"/>
+		<result property="userId" column="user_id"/>
+		<result property="discountId" column="discount_id"/>
+		<result property="createTime" column="create_time"/>
+		<result property="endTime" column="end_time"/>
+		<result property="state" column="state"/>
+		<collection property="discount" ofType="Discount">
+			<id property="id" column="discountId"/>
+			<result property="name" column="name"/>
+			<result property="type" column="type"/>
+			<result property="discount" column="discount"/>
+			<result property="kind" column="kind"/>
+			<result property="endTime" column="end_time"/>
+			<result property="companyId" column="company_id"/>
+		</collection>
+	</resultMap>
+	
+	<select id="queryList" resultMap="userDiscountMap">
+		SELECT
+			t1.id,
+			t1.user_id,
+			t1.discount_id,
+			t1.create_time,
+			t1.end_time,
+			t1.state,
+			t2.id discountId,
+			t2.`name`,
+			t2.type,
+			t2.discount,
+			t2.kind,
+			t2.end_time,
+			t2.company_id
+		FROM
+			`jyq_user_discount` t1
+		LEFT JOIN jyq_discount t2 ON t1.discount_id = t2.id
+		<where>
+			<choose>
+				<when test="state !=null">
+					t1.state = #{state}
+				</when>
+				<otherwise>
+					t1.state = 0
+				</otherwise>
+			</choose>
+		and t1.user_id = #{userId}
+		and t2.end_time > NOW()
+		</where>
+		ORDER BY t1.create_time DESC
+	</select>
+</mapper>

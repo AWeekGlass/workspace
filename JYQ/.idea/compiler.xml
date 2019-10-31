@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="auth-center" />
+        <module name="case-center" />
+        <module name="common" />
+        <module name="contract-center" />
+        <module name="data-center" />
+        <module name="eureka-server" />
+        <module name="exam-center" />
+        <module name="gateway" />
+        <module name="interview-center" />
+        <module name="log-service" />
+        <module name="report-center" />
+        <module name="system-center" />
+        <module name="training-center" />
+        <module name="user-center" />
+        <module name="web-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-center" target="1.8" />
+      <module name="case-center" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="contract-center" target="1.8" />
+      <module name="data-center" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="exam-center" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="interview-center" target="1.8" />
+      <module name="JYQ" target="1.8" />
+      <module name="log-service" target="1.8" />
+      <module name="report-center" target="1.8" />
+      <module name="system-center" target="1.8" />
+      <module name="training-center" target="1.8" />
+      <module name="user-center" target="1.8" />
+      <module name="web-common" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-center" options="-parameters" />
+      <module name="case-center" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="contract-center" options="-parameters" />
+      <module name="data-center" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="exam-center" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="interview-center" options="-parameters" />
+      <module name="log-service" options="-parameters" />
+      <module name="report-center" options="-parameters" />
+      <module name="system-center" options="-parameters" />
+      <module name="training-center" options="-parameters" />
+      <module name="user-center" options="-parameters" />
+      <module name="web-common" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,23 @@
+package com.hengyu.system.web;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.Api;
+
+/**
+ * <p>
+ * 订单表 前端控制器
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-12-05
+ */
+@Api(value = "OrderController", tags = "订单Controller")
+@RestController
+@RequestMapping("/order")
+public class OrderController {
+
+}
+

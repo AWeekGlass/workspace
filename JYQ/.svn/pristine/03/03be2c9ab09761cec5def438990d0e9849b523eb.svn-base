@@ -1,0 +1,28 @@
+package com.hengyu.cases.dao;
+
+import com.hengyu.cases.entity.Comment;
+import com.hengyu.cases.vo.CommentInfoVo;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+/**
+ * <p>
+ * Mapper 接口
+ * </p>
+ *
+ * @author allnas
+ * @since 2018-08-28
+ */
+public interface CommentDAO extends BaseMapper<Comment> {
+	/**
+	 * 查看案例回复信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	List<CommentInfoVo> queryCommentInfoByCaseId(@Param("caseId")Integer caseId);
+}
