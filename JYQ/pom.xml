@@ -33,7 +33,7 @@
 		<commons-lang3.verion>3.8</commons-lang3.verion>
 		<commons-collections4.version>4.2</commons-collections4.version>
 		<jsoup.version>1.11.3</jsoup.version>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<commons-net.version>3.6</commons-net.version>
 	</properties>
 
