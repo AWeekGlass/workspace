@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<alipay.version>3.4.49.ALL</alipay.version>
-		<fastjson.verion>1.2.49</fastjson.verion>
+		<fastjson.verion>1.2.83</fastjson.verion>
 		<jjwt.version>0.9.1</jjwt.version>
 		<mybatis-plus-boot-starter.version>2.3</mybatis-plus-boot-starter.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
